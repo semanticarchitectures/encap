@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/common.schema.json",
+  "title": "ENSIM Common Definitions",
+  "$defs": {
+    "entityId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Lowercase kebab-case stable identifier, unique within its entity type."
+    },
+    "doctrineSource": {
+      "type": "object",
+      "description": "Citation to the public doctrine or reference material that grounds this record. Required on every ENSIM entity per AGENTS.md — do not add a record without one, and use the 'note' field to flag anything not independently verified.",
+      "properties": {
+        "publication": {
+          "type": "string",
+          "description": "e.g. 'AFDP 3-0.1', 'JP 3-17', 'DAFMAN 13-217', 'DoDD 5100.46', or a named fact sheet/article title."
+        },
+        "section": {
+          "type": "string",
+          "description": "Specific section, page, or fact-sheet heading, if applicable."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "note": {
+          "type": "string",
+          "description": "Free-text caveat, e.g. 'unit designation not yet verified — confirm before treating as fact.'"
+        }
+      },
+      "required": ["publication"],
+      "additionalProperties": false
+    },
+    "participant": {
+      "type": "object",
+      "description": "A reference to any node in the mission execution interaction network — a Role (personnel), C2Node, Organization, or System.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["role", "c2node", "organization", "system"]
+        },
+        "id": { "$ref": "#/$defs/entityId" }
+      },
+      "required": ["kind", "id"],
+      "additionalProperties": false
+    },
+    "commsLink": {
+      "type": "object",
+      "description": "Detail on a communications or information-flow link: whether it is spoken or digital, what physical/logical medium carries it, and — for digital links — the protocol and message/data format. Per AGENTS.md Section 3, any protocol/format detail must be either a real, public, unclassified specification (e.g. Cursor on Target, PKI/CAC) or explicitly marked representative — never a real classified system's specification.",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["Verbal", "Digital", "Mixed"],
+          "description": "Verbal = spoken communication (radio voice, intercom, in-person). Digital = structured data communication. Mixed = the link combines both, e.g. a spoken briefing built from a written/digital product."
+        },
+        "medium": {
+          "type": "string",
+          "description": "The physical or logical bearer carrying this link, e.g. 'UHF/VHF AM voice radio', 'wired aircraft intercom', 'SATCOM datalink', 'tactical mesh radio (MANET)', 'DoD web network (HTTPS)', 'in-person'."
+        },
+        "protocol": {
+          "type": "string",
+          "description": "Digital transport/message protocol, when mode is Digital or Mixed, e.g. 'Cursor on Target (CoT) over UDP/TCP', 'HTTPS', 'PKI/CAC certificate-based authentication'. State 'representative' rather than inventing a specific real protocol when none is confirmed."
+        },
+        "format": {
+          "type": "string",
+          "description": "Message/data format, when mode is Digital or Mixed, e.g. 'CoT XML event schema', 'TAC plain-text alphanumeric codes (METAR/TAF/PIREP/SIGMET/NOTAM)'. State 'representative' rather than inventing a specific real format when none is confirmed."
+        }
+      },
+      "required": ["mode", "medium"],
+      "additionalProperties": false
+    }
+  }
+}

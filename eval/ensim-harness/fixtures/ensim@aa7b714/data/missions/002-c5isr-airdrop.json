@@ -1,0 +1,57 @@
+{
+  "id": "mission-002-c5isr-airdrop",
+  "name": "C5ISR Airdrop",
+  "status": "Draft",
+  "fictionalized": true,
+  "precedent": "A fictional companion to Mission 1 (mission-001-hickam-luzon-airdrop), supporting the same Damayan-pattern humanitarian relief effort. Unlike Mission 1, this scenario is NOT modeled on a specific real precedent operation — it is a forward-looking illustration of a real, publicly documented AFRL program direction: Rapid Dragon's stated expansion from 'Palletized Munitions' to 'Palletized Effects' explicitly including ISR platforms and humanitarian aid delivery (see systems.json's rapid-dragon-palletized-effects-system record). No real operation has combined a HA/DR airdrop with a palletized-effects ISR-UAV deployment; this mission illustrates what AFRL's own public materials describe as a plausible future application.",
+  "doctrineProcessId": "hadr-request-and-tasking-flow",
+  "organizationsInvolved": [
+    "indopacom",
+    "pacaf",
+    "pacaf-theater-aoc",
+    "amc-618-aoc-tacc",
+    "15th-wing",
+    "535th-airlift-squadron",
+    "557th-weather-wing",
+    "17th-operational-weather-squadron"
+  ],
+  "rolesInvolved": [
+    "cfacc",
+    "dirmobfor",
+    "combat-plans-division-chief",
+    "combat-operations-division-duty-officer",
+    "toc-l-coordinator",
+    "mission-commander",
+    "aircraft-commander",
+    "copilot",
+    "loadmaster",
+    "staff-weather-officer"
+  ],
+  "route": {
+    "origin": "Joint Base Pearl Harbor-Hickam, HI",
+    "destination": "Drop zone, Luzon, Philippines",
+    "stagingNote": "En route staging/refuel point not modeled in v1 — same as Mission 1."
+  },
+  "cargo": {
+    "type": "Rapid Dragon-class palletized ISR UAV deployment boxes",
+    "contents": "Long-endurance ISR/communications-relay UAVs, forming a distributed sensor network to support the relief effort with intelligence and C2",
+    "bundleCount": null
+  },
+  "timeline": [
+    { "step": 1, "description": "Typhoon strikes Luzon; host-nation/embassy assistance request initiated — shared context with Mission 1.", "doctrineProcessStep": 1 },
+    { "step": 2, "description": "USAID BHA validates the requirement for a unique DoD capability, including the need for an airborne ISR/C2 sensor network over the affected area.", "doctrineProcessStep": 2 },
+    { "step": 3, "description": "Request enters the Mission Tasking Matrix process to the Secretary of Defense.", "doctrineProcessStep": 3 },
+    { "step": 4, "description": "INDOPACOM stands up a Joint Task Force (shared with Mission 1).", "doctrineProcessStep": 4 },
+    { "step": 5, "description": "PACAF theater AOC tasks the sortie via the ATO; DIRMOBFOR coordinates mobility flow. The TOC-L Coordinator begins producing the UAV flight plan for the palletized ISR deployment, informed by the AOC Weather Support Team's mission forecast — winds at release altitude affect both the airdrop and the UAVs' powered-flight transition.", "doctrineProcessStep": 5 },
+    { "step": 6, "description": "618 AOC/TACC tasks the specific tail number and crew from the 535th Airlift Squadron. TOC-L provides the completed UAV flight plan and detailed launch instructions to the tasked Loadmaster; the Aircraft Commander receives a pre-flight Flight Weather Briefing (DD Form 175-1) from the Staff Weather Officer.", "doctrineProcessStep": 6 },
+    { "step": 7, "description": "Sortie executed: the Loadmaster verifies pallet configuration against the TOC-L flight plan and operates the Rapid Dragon-class system to deploy the ISR UAVs, which establish their sensor/communications-relay network — modeled as a state transition in v1, with no flight dynamics or UAV telemetry simulation. Weather data continues to stream to both the AOC and the aircraft throughout, informing the Aircraft Commander's weather go/no-go decisions.", "doctrineProcessStep": null },
+    { "step": 8, "description": "Mission report closes the loop back through the C2 chain, including initial status of the deployed ISR/C2 network.", "doctrineProcessStep": null }
+  ],
+  "doctrineSource": [
+    {
+      "publication": "Air Force Research Laboratory, \"Rapid Dragon\" / \"Palletized Effects\"",
+      "url": "https://afresearchlab.com/rapid-dragon-delivers-long-range-strike-from-cargo-aircraft/",
+      "note": "Grounds the mission concept itself, not just individual records — AFRL's own public materials state Palletized Effects 'has the potential to assist in multiple scenarios on the spectrum of conflict ranging from humanitarian relief to kinetic effects' and include ISR platforms among the expanding payload set. This mission is a fictionalized illustration of that stated direction, not a report of an actual mission."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sourceRepo": "https://github.com/semanticarchitectures/ENSIM.git",
+  "requestedSha": "aa7b714",
+  "resolvedSha": "aa7b7140785ae632aa1c6e07e9031b422906e2fa",
+  "fetchedAt": "2026-09-15T12:18:34.893Z",
+  "license": "Apache-2.0",
+  "copiedPaths": [
+    "packages/org-doctrine-model/data",
+    "packages/org-doctrine-model/schema"
+  ],
+  "note": null
+}

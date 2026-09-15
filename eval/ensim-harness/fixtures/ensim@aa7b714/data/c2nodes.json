@@ -1,0 +1,134 @@
+[
+  {
+    "id": "15th-wing-operations-center",
+    "name": "15th Wing Operations Center",
+    "organizationId": "15th-wing",
+    "function": "ExecutionMonitoring",
+    "producesArtifacts": ["Sortie status reports"],
+    "description": "Wing-level execution monitoring for tasked sorties.",
+    "doctrineSource": [
+      { "publication": "Generic wing C2 doctrine reference", "note": "Wing Operations Center function is standard; the 15th Wing's specific internal C2 structure was not independently verified during this research pass." }
+    ]
+  },
+  {
+    "id": "aoc-tasking-node",
+    "name": "Air Operations Center (AOC) Tasking Function",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Tasking",
+    "producesArtifacts": ["Air Tasking Order (ATO)", "SPINS", "Airspace Control Order (ACO)"],
+    "description": "The AOC's Combat Operations Division tasking function that produces the daily ATO plus supporting SPINS/ACO.",
+    "doctrineSource": [
+      { "publication": "AFDP 3-0.1" }
+    ]
+  },
+  {
+    "id": "aoc-strategy-division",
+    "name": "Strategy Division (SRD)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Coordination",
+    "producesArtifacts": ["Joint Air Operations Plan (JAOP)", "Air Operations Directive (AOD)", "Operational assessment report"],
+    "description": "Long-range and near-term strategy planning; develops, refines, disseminates, and assesses JFACC strategy guidance. Comprises the Strategy Plans Team, Strategy Guidance Team, and Operational Assessment Team.",
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.4", "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf" }
+    ]
+  },
+  {
+    "id": "aoc-combat-plans-division",
+    "name": "Combat Plans Division (CPD)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Tasking",
+    "producesArtifacts": ["Air Tasking Order (ATO)/ATONEWS", "Airspace Control Order (ACO)", "Airspace Control Plan (ACP)", "Joint Integrated Prioritized Target List (JIPTL)", "SPINS"],
+    "description": "Near-term AOC planning (within 48 hours prior to ATO execution). Comprises the Targeting Effects Team (TET), MAAP Team, ATO Production Team, and C2 Plans Team. This is the division that actually builds the ATO — not Combat Operations Division, which executes it.",
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.5, §4.3, §4.5.1", "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf" }
+    ]
+  },
+  {
+    "id": "aoc-combat-operations-division",
+    "name": "Combat Operations Division (COD)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "ExecutionMonitoring",
+    "producesArtifacts": ["Sortie/mission execution status", "Common Tactical Picture (CTP) inputs"],
+    "description": "Executes the current ATO/ATONEWS and ACO during the 24-hour execution period. Comprises the Offensive Operations Team, Defensive Operations Team, Component Joint Data Network Team, and the Senior Intelligence Duty Officer (SIDO) team. Corrects an earlier ENSIM assumption that this division builds the ATO — per AFMAN 13-1AOC Vol 3, that is CPD's role; COD executes it.",
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.6", "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf" }
+    ]
+  },
+  {
+    "id": "aoc-isr-division",
+    "name": "Intelligence, Surveillance, and Reconnaissance Division (ISRD)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Coordination",
+    "producesArtifacts": ["ISR collection tasking", "Target/tactical assessment products"],
+    "description": "Assesses and anticipates adversary activity, plans ISR operations, and develops dynamic target strategies. Comprises the Analysis, Correlation, and Fusion (ACF) Team, Targets/Tactical Assessment (TGT/TA) Team, and ISR Operations Team.",
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.7", "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf" }
+    ]
+  },
+  {
+    "id": "aoc-air-mobility-division",
+    "name": "Air Mobility Division (AMD)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Tasking",
+    "producesArtifacts": ["Air mobility mission tasking", "Joint Integrated Prioritized Requirements List (JIPRL) coordination"],
+    "description": "Plans, coordinates, tasks, and executes air mobility missions per JFACC guidance, in a process run parallel to and integrated with the main air tasking cycle. Coordinates intertheater air mobility missions directly with the 618 AOC/TACC. Comprises the Airlift Control Team, Air Refueling Control Team, Aeromedical Evacuation Control Team, and Air Mobility Control Team. This is the doctrinally correct home for DIRMOBFOR's coordination function and for Mission 1's airlift tasking, not the generic CPD/ATO path.",
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.8", "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf" },
+      { "publication": "AFDP 3-36, Air Mobility Operations", "section": "24 Jun 2024 edition", "note": "Cited via the AOC-DFO corpus registry, not independently fetched in this session — treat as a lead for deeper AMD/DIRMOBFOR sourcing, not yet verified firsthand." }
+    ]
+  },
+  {
+    "id": "618-aoc-tacc-tasking-node",
+    "name": "618 AOC/TACC Mission Tasking",
+    "organizationId": "amc-618-aoc-tacc",
+    "function": "Tasking",
+    "producesArtifacts": ["Mission tail/crew tasking"],
+    "description": "24/7 execution node tasking specific tail numbers and crews for AMC-owned global mobility missions, even when the aircraft flying it is theater-assigned.",
+    "doctrineSource": [
+      { "publication": "618th Air Operations Center Fact Sheet", "url": "https://www.amc.af.mil/About-Us/Fact-Sheets/Display/Article/1517680/618th-air-operations-center/" }
+    ]
+  },
+  {
+    "id": "toc-l",
+    "name": "Tactical Operations Center (Light) (TOC-L)",
+    "organizationId": "pacaf",
+    "function": "Tasking",
+    "producesArtifacts": ["Air picture / sensor-fusion common operating picture", "UAV flight plan (this mission's extension)"],
+    "description": "A real, current, deployable USAF C2 kit: fuses data from hundreds of sensor/battle-management feeds into a common air picture, connects to aircraft and other C2 agencies, and is staffed by a handful of personnel versus ~100 for a full-size Control and Reporting Center (CRC). Publicly demonstrated across PACAF's Indo-Pacific AOR (Misawa, Yokota, Guam) in 2025 exercises. Its use here as the element that produces UAV flight plans and issues detailed launch instructions to the Loadmaster is this mission's own extension of TOC-L's real, more general C2/sensor-fusion role — no source found this session documents TOC-L specifically performing airdropped-UAV flight planning.",
+    "doctrineSource": [
+      {
+        "publication": "\"Air Force TOC-L enhances joint force C2\"",
+        "url": "https://www.af.mil/News/Article-Display/Article/4170256/air-force-toc-l-enhances-joint-force-c2/",
+        "note": "Confirmed via web search on 2026-09-07 (real, current USAF program; corroborated by a second af.mil article, 'Next-gen TOC-L systems announced to boost agile C2 capabilities,' and independent defense trade press: Air & Space Forces Magazine, DefenseScoop, The Defense Post). Direct fetch of the af.mil article itself returned a network-level 403 this session — same .mil constraint noted on other records. This record's specific claim that TOC-L produces UAV flight plans for a palletized-effects airdrop is NOT from any source — it is this mission's fictional extension of TOC-L's real, documented air-battle-management/sensor-fusion function, stated explicitly rather than presented as doctrine."
+      }
+    ]
+  },
+  {
+    "id": "tpmrc",
+    "name": "Theater Patient Movement Requirements Center (TPMRC)",
+    "organizationId": "ustranscom",
+    "function": "Tasking",
+    "producesArtifacts": ["Validated Patient Movement Request (PMR)", "Patient movement/evacuation manifest"],
+    "description": "Validates and regulates aeromedical evacuation requirements: receives Patient Movement Requests (PMRs) from the requesting medical treatment facility, validates and prioritizes them by precedence (Urgent/Urgent-Surg/Priority/Routine/Convenience), and coordinates with the theater AOC's Air Mobility Division (which includes an Aeromedical Evacuation Control Team — see aoc-air-mobility-division) to source the tasked AE mission/crew. Part of the PMRC/JPMRC/TPMRC/GPMRC system; three regional TPMRCs exist (Americas, East, West) — this record represents the Pacific-theater instance generically, not tied to one of the three by name.",
+    "doctrineSource": [
+      {
+        "publication": "USTRANSCOM patient movement doctrine (per Army.mil/DVIDS coverage) and NATO AAMedP-1.1/1.5 (STANAG 3204/2087) for the PMR precedence/type taxonomy",
+        "note": "TPMRC's validating/regulating function and the PMR process are confirmed via web search on 2026-09-09 (same sourcing status as the ustranscom Organization record). The precedence categories (Urgent/Urgent-Surg/Priority/Routine/Convenience) and patient type codes (Litter/Ambulatory) are drawn from NATO standardization agreements (coemed.org-hosted STANAG texts) — allied/NATO doctrine rather than a US-specific source, used here because a directly fetchable USAF-specific enumeration of the same categories was not found this session; the concepts are standard across US/NATO aeromedical evacuation doctrine."
+      }
+    ]
+  },
+  {
+    "id": "aoc-weather-support-team",
+    "name": "AOC Weather Support Team (WST)",
+    "organizationId": "pacaf-theater-aoc",
+    "function": "Reporting",
+    "producesArtifacts": ["Mission Execution Forecast", "Terminal Aerodrome Forecast (TAF)", "Weather Watches, Warnings, and Advisories (WWA)"],
+    "description": "Fuses theater-scale weather products from the 17th Operational Weather Squadron with local mission requirements to produce Mission Weather Products, per AFMAN 15-129's Mission Execution Forecast Process (MEFP), and reports weather impacts to the AOC's divisions and to AOC Flight Managers. Weather is confirmed as one of the AOC's embedded operating disciplines (alongside ISR, airspace management, logistics, etc.) rather than one of the five core divisions (Strategy/Combat Plans/Combat Operations/ISR/Air Mobility) — this record represents that embedded weather function as its own C2Node rather than attributing it to one specific division, since no source found this session pins it to exactly one.",
+    "doctrineSource": [
+      {
+        "publication": "AFMAN 13-1AOC Vol 3; AFMAN 15-129, Aerospace Weather Operations – Processes and Procedures; AFDP 3-59, Weather Operations (26 Sep 2025)",
+        "note": "Confirmed via web search on 2026-09-10: AFMAN 13-1AOC Vol 3 lists weather among the AOC's operating disciplines and confirms Weather Support Teams (WSTs) provide weather information/products to AOC Flight Managers; AFMAN 15-129 confirms the Mission Execution Forecast Process (MEFP) fuses theater-scale OWS products with local requirements into tailored Mission Weather Products (MWPs); AFDP 3-59 confirms weather personnel integrate into staff functions for short-term (1-3 day) mission planning and execution. None of the primary PDFs (static.e-publishing.af.mil, doctrine.af.mil) could be directly fetched from this session's environment — same network-block constraint noted throughout this dataset — so this record is grounded via WebSearch synthesis of the publications' confirmed content, not an independent full read."
+      }
+    ]
+  }
+]

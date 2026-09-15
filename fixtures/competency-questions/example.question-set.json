@@ -1,0 +1,19 @@
+{
+  "$schema": "./question-set.schema.json",
+  "fixtureId": "example-fixture",
+  "description": "Template only — illustrates the question-set shape. Not graded against any real document; `example-fixture` does not correspond to a fixtures/doctrine/manifest.json entry. Phase 2 replaces this with a real question set once the first doctrine PDF is synthesized, per AGENTS.md Section 2 (never invent doctrine facts to fill this gap).",
+  "questions": [
+    {
+      "id": "example-process-owner",
+      "question": "Which organization or role is responsible for executing the process this document describes?",
+      "expectedAnswerNotes": "Names the specific responsible party the source document states, not a plausible-sounding guess. If the OKF bundle's answer differs from the source's answer, that is a gate failure.",
+      "sourceAnchor": "e.g. 'p. 3, Section 1.2' — replace with the real anchor once this is a real fixture"
+    },
+    {
+      "id": "example-key-definition",
+      "question": "What does the document define as the trigger condition for the process it describes?",
+      "expectedAnswerNotes": "States the specific trigger condition verbatim or in close paraphrase, with a citation resolving to the source. A vague or invented trigger condition fails.",
+      "sourceAnchor": "e.g. 'p. 5, Section 2.1'"
+    }
+  ]
+}

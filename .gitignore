@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*
+
+# Doctrine PDFs are downloaded locally per fixtures/doctrine/manifest.json;
+# only the manifest and derived Markdown are committed.
+fixtures/doctrine/*.pdf
+
+# Non-pinned local override for eval/ensim-harness (see its README).
+.ensim-local/

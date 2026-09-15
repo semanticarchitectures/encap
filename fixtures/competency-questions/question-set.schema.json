@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://encap.dev/schema/fixtures/competency-question-set.schema.json",
+  "title": "Competency question set",
+  "description": "The Phase 2/3 synthesis gate (docs/PLAN.md Section 5): for a fixture, a set of questions a competent staff officer should be able to answer from the source. A synthesized OKF bundle passes if an agent reading only the bundle answers as well as an agent reading the source, and every answer cites.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fixtureId", "questions"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Editor-tooling convenience pointer back to this schema file; not semantically meaningful."
+    },
+    "fixtureId": {
+      "type": "string",
+      "description": "The id of the source fixture this question set is graded against — a fixtures/doctrine/manifest.json document id (Phase 2), or an operating-model bundle id (Phase 3)."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line summary of what this question set is exercising."
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/question" }
+    }
+  },
+  "$defs": {
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "question", "expectedAnswerNotes"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "question": {
+          "type": "string",
+          "description": "The question, phrased the way a staff officer would ask it."
+        },
+        "expectedAnswerNotes": {
+          "type": "string",
+          "description": "What a competent answer must contain — grading notes for a judge, not a literal string to match verbatim."
+        },
+        "sourceAnchor": {
+          "type": "string",
+          "description": "Page or section anchor in the source document that grounds the expected answer, e.g. 'p. 14, para 2.3'."
+        },
+        "requiresOperatingModel": {
+          "type": "boolean",
+          "default": false,
+          "description": "True for the Phase 3 second question set: answerable only by combining the source with the operating-model bundle (docs/PLAN.md Section 5, Phase 3), e.g. 'which C2 node in this enterprise owns the step this paragraph describes?'"
+        }
+      }
+    }
+  }
+}

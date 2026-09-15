@@ -1,0 +1,128 @@
+[
+  {
+    "id": "loadmaster-rigging-readiness-verification",
+    "roleId": "loadmaster",
+    "name": "Rigging and Restraint Readiness Verification",
+    "description": "Before the drop run, the Loadmaster verifies that CDS bundle rigging and restraint meets standard before the aircraft can proceed to release.",
+    "informedBy": [{ "kind": "system", "id": "cds-airdrop-mechanism" }],
+    "criteria": "CDS bundle rigging and restraint configuration meets DAFMAN 13-217 drop-zone/airdrop standards.",
+    "possibleOutcomes": ["Ready for release", "Not ready — delay or correct rigging before proceeding"],
+    "doctrineSource": [
+      { "publication": "DAFMAN 13-217", "section": "Drop-Zone and Landing-Zone Operations" }
+    ]
+  },
+  {
+    "id": "loadmaster-release-execution",
+    "roleId": "loadmaster",
+    "name": "Release Execution",
+    "description": "The Loadmaster's hand is on the release mechanism during the drop run; physical release is executed only on the Aircraft Commander's verbal command, confirmed by a flight-deck signal that cargo is ready and the drop zone is clear.",
+    "informedBy": [
+      { "kind": "role", "id": "aircraft-commander" },
+      { "kind": "system", "id": "tactical-communications-system" }
+    ],
+    "criteria": "Release is executed only after the Aircraft Commander's verbal 'Mark' command, confirmed by a flight-deck 'cargo ready / drop zone clear' signal — never on the Loadmaster's unilateral initiative.",
+    "possibleOutcomes": ["Release executed, confirmed to flight deck (\"Cargo away\")", "Hold — awaiting Mark command"],
+    "doctrineSource": [
+      { "publication": "DAFMAN 13-217", "section": "Drop-Zone and Landing-Zone Operations" },
+      {
+        "publication": "C-17 Pilot (c17pilot.com), \"C-17 Airdrop Operations — How Cargo and Troops Exit at 25,000 Feet\"",
+        "note": "NOT an official Air Force publication — an enthusiast/educational site. Cited for the specific call-and-response procedure (pilot 'Mark' → Loadmaster 'Cargo away', green-light flight-deck signal) because no official source for this exact sequence was independently accessible this session (every .mil domain network-blocked). The general framework — CDS release under aircrew/DZ coordination — is grounded in DAFMAN 13-217; this specific verbal-procedure detail is not verified against a primary Air Force source and should be treated as illustrative/representative rather than doctrinally confirmed."
+      }
+    ]
+  },
+  {
+    "id": "loadmaster-inflight-malfunction-abort-call",
+    "roleId": "loadmaster",
+    "name": "In-Flight Malfunction / Abort Call",
+    "description": "During the drop run-in, the Loadmaster monitors the cargo compartment and rigging for equipment failures and can call for the release to be aborted.",
+    "informedBy": [{ "kind": "system", "id": "cds-airdrop-mechanism" }],
+    "criteria": "Any detected equipment malfunction or rigging failure that would compromise a safe release.",
+    "possibleOutcomes": ["Continue with planned release", "Call abort and report the malfunction to the Aircraft Commander"],
+    "doctrineSource": [
+      { "publication": "DAFMAN 13-217", "section": "Drop-Zone and Landing-Zone Operations" }
+    ]
+  },
+  {
+    "id": "loadmaster-uav-pallet-configuration-verification",
+    "roleId": "loadmaster",
+    "name": "UAV Pallet Configuration Verification Against TOC-L Flight Plan",
+    "description": "Before the drop run, the Loadmaster verifies that the Rapid Dragon-class pallet configuration and UAV launch sequence match the flight plan and launch instructions provided by the TOC-L Coordinator.",
+    "informedBy": [
+      { "kind": "role", "id": "toc-l-coordinator" },
+      { "kind": "system", "id": "rapid-dragon-palletized-effects-system" }
+    ],
+    "criteria": "Pallet configuration, UAV launch sequence, and release parameters match the TOC-L-provided flight plan exactly.",
+    "possibleOutcomes": [
+      "Configuration verified — proceed with launch sequence",
+      "Discrepancy identified — hold and coordinate with TOC-L before release"
+    ],
+    "doctrineSource": [
+      {
+        "publication": "Air Force Research Laboratory, \"Rapid Dragon\" / \"Palletized Effects\"",
+        "note": "General Rapid Dragon-class pallet concept confirmed (see rapid-dragon-palletized-effects-system System record). The specific loadmaster verification procedure against a TOC-L-produced flight plan is not documented in any source found this session — this Decision is a reasonable structural inference (a loadmaster verifying configuration against instructions before release is standard practice for any pre-release check, per the existing loadmaster-rigging-readiness-verification Decision) applied to this mission's new payload type, not a directly documented procedure."
+      }
+    ]
+  },
+  {
+    "id": "mcd-inflight-patient-status-decision",
+    "roleId": "flight-nurse-medical-crew-director",
+    "name": "In-Flight Patient Status Decision",
+    "description": "During flight, the Flight Nurse (Medical Crew Director) assesses whether a patient's condition remains within the bounds anticipated by their assigned precedence category (Urgent/Urgent-Surg/Priority/Routine/Convenience) and takes action if it does not — including advising the Aircraft Commander of a need affecting flight operations.",
+    "informedBy": [
+      { "kind": "role", "id": "aeromedical-evacuation-technician" },
+      { "kind": "system", "id": "ae-patient-care-equipment" }
+    ],
+    "criteria": "Patient vital signs and condition, as reported by the AE Technician and shown on patient monitoring equipment, measured against the patient's assigned precedence category and expected in-flight course.",
+    "possibleOutcomes": [
+      "Continue mission as planned",
+      "Provide in-flight intervention within AECM scope of care",
+      "Advise Aircraft Commander of a flight-operations need (e.g. altitude restriction) or, in the most severe case, request diversion"
+    ],
+    "doctrineSource": [
+      {
+        "publication": "AFI 48-307 / DAFI 48-107 series; NATO AAMedP-1.1/1.5 (STANAG 3204/2087) for the precedence taxonomy",
+        "note": "The Medical Crew Director's overall supervisory/decision authority for in-flight patient care is confirmed (same sourcing as the flight-nurse-medical-crew-director Role record). The precedence-category taxonomy (Urgent/Urgent-Surg/Priority/Routine/Convenience) is NATO-sourced (same sourcing as the tpmrc C2Node record) rather than a directly fetched USAF-specific enumeration; the specific decision structure and outcome set here are this dataset's reasonable structuring of that authority, not a quoted procedure."
+      }
+    ]
+  },
+  {
+    "id": "mcd-manifest-verification",
+    "roleId": "flight-nurse-medical-crew-director",
+    "name": "Patient Manifest Verification Against TPMRC-Validated PMR",
+    "description": "Before departure, the Flight Nurse (Medical Crew Director) verifies that the actual patient load — count, precedence mix, and litter/ambulatory breakdown — matches the TPMRC-validated Patient Movement Request, the AE mission's analogue to the Loadmaster's pre-release rigging/configuration checks in Missions 1-2.",
+    "informedBy": [{ "kind": "c2node", "id": "tpmrc" }],
+    "criteria": "Patient count, precedence mix, and litter/ambulatory breakdown match the TPMRC-validated PMR exactly.",
+    "possibleOutcomes": [
+      "Manifest verified — proceed with mission",
+      "Discrepancy identified — hold and coordinate with TPMRC before departure"
+    ],
+    "doctrineSource": [
+      {
+        "publication": "USTRANSCOM patient movement doctrine (via web search synthesis)",
+        "note": "Same verification status as the tpmrc C2Node record's citation. The general PMR validation process is confirmed; the specific pre-departure MCD verification step modeled here is a reasonable structural inference (a pre-release/pre-departure verification against validated instructions is standard practice, per the existing loadmaster-rigging-readiness-verification and loadmaster-uav-pallet-configuration-verification Decisions), not a directly documented procedure."
+      }
+    ]
+  },
+  {
+    "id": "aircraft-commander-weather-go-no-go",
+    "roleId": "aircraft-commander",
+    "name": "Weather Go/No-Go and Divert Decision",
+    "description": "Before departure and continuously during the mission, the Aircraft Commander assesses current and forecast weather — starting with the pre-flight Flight Weather Briefing (DD Form 175-1) and updated by the in-flight weather data stream — against aircraft and mission-specific weather minimums, and decides whether to proceed, delay, or divert.",
+    "informedBy": [
+      { "kind": "c2node", "id": "aoc-weather-support-team" },
+      { "kind": "system", "id": "jaawin-weather-distribution-system" }
+    ],
+    "criteria": "Observed and forecast weather (ceiling, visibility, winds, icing, thunderstorm activity) at departure, en route, and destination/drop-zone, measured against aircraft and mission-specific weather minimums.",
+    "possibleOutcomes": [
+      "Proceed as planned",
+      "Delay departure pending improved conditions",
+      "Divert to an alternate or abort the mission leg"
+    ],
+    "doctrineSource": [
+      {
+        "publication": "DD Form 175-1, \"Flight Weather Briefing\"; AFDP 3-59, Weather Operations",
+        "note": "The weather-minimums go/no-go decision is standard aviation practice, confirmed generically via web search on 2026-09-10; DD Form 175-1's structure (mission/takeoff data, en-route data, terminal forecast, hazards including turbulence/icing/thunderstorms) is confirmed as the standard USAF pre-flight weather-briefing input to exactly this kind of decision. The specific outcome set and continuous (not just pre-flight) framing here is this dataset's reasonable structuring of that authority, not a quoted procedure."
+      }
+    ]
+  }
+]

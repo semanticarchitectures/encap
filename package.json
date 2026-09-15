@@ -1,0 +1,26 @@
+{
+  "name": "encap",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ENCAP — agents grounded in an OKF document library and an enterprise operating model, evaluated against ENSIM.",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "eval/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "validate": "npm run validate --workspaces --if-present && node scripts/validate-fixtures.mjs",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://encap.dev/schema/fixtures/doctrine-manifest.schema.json",
+  "title": "Doctrine fixtures manifest",
+  "description": "Records provenance for every doctrine PDF used as a fixture in this repo. AGENTS.md Section 3: a file with no entry here, or a distributionStatement that isn't unlimited public release, must never be committed or synthesized.",
+  "type": "object",
+  "required": ["documents"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Editor-tooling convenience pointer back to this schema file; not semantically meaningful."
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "sourceUrl",
+        "sha256",
+        "publicationDate",
+        "distributionStatement",
+        "localPath"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Lowercase kebab-case stable identifier, e.g. 'afman-13-1aoc-vol-3'."
+        },
+        "title": {
+          "type": "string",
+          "description": "The publication's full title, e.g. 'AFMAN 13-1AOC Volume 3, Air Operations Center'."
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Where the PDF was downloaded from."
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 of the downloaded PDF file, so a re-download can be checked for drift."
+        },
+        "publicationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The publication's own effective/publication date (ISO 8601 YYYY-MM-DD), not the download date."
+        },
+        "distributionStatement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The exact distribution statement printed on the document. Only documents whose statement is an unlimited public-release statement may be committed or synthesized (AGENTS.md Section 3) — this field records the statement as printed; scripts/validate-fixtures.mjs additionally checks it reads as unlimited release."
+        },
+        "localPath": {
+          "type": "string",
+          "description": "Path to the PDF relative to fixtures/doctrine/. The PDF itself is gitignored; only this manifest is committed."
+        },
+        "note": {
+          "type": "string",
+          "description": "Free-text caveat, e.g. why a section is hard to cite, or an access issue encountered fetching it."
+        }
+      }
+    }
+  }
+}

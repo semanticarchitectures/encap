@@ -1,0 +1,13 @@
+{
+  "name": "@encap/synthesis-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Thin UI over @encap/synthesis-agent: files in, OKF bundle out.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"@encap/synthesis-app: no code yet (Phase 6, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/synthesis-app: no tests yet\"",
+    "validate": "echo \"@encap/synthesis-app: nothing to validate yet\""
+  }
+}

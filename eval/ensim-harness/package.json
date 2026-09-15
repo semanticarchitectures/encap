@@ -1,0 +1,18 @@
+{
+  "name": "@encap/ensim-harness",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned-commit snapshot of ENSIM's org-doctrine-model data+schema, a fetch script, and (Phase 3) the JSON -> OKF converter and persona-driver contract.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "fetch-ensim": "node scripts/fetch-ensim.mjs",
+    "build": "echo \"@encap/ensim-harness: converter not built yet (Phase 3, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/ensim-harness: no tests yet\"",
+    "validate": "node scripts/validate-snapshot.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

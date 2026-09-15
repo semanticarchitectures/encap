@@ -1,0 +1,61 @@
+{
+  "id": "mission-003-luzon-aeromedical-evacuation",
+  "name": "Luzon Aeromedical Evacuation",
+  "status": "Draft",
+  "fictionalized": true,
+  "precedent": "A fictional companion to Missions 1 and 2 (mission-001-hickam-luzon-airdrop, mission-002-c5isr-airdrop), all part of the same Damayan-pattern humanitarian relief effort. No source found this session confirms aeromedical evacuation specifically supported the real Operation Damayan; AE routinely supports HA/DR patient movement in general (well-documented USAF AE doctrine — see the 18th Aeromedical Evacuation Squadron and TPMRC records), so this mission illustrates a doctrinally standard AE application within this fictional scenario's broader relief effort, not a re-creation of a documented historical AE operation.",
+  "doctrineProcessId": "hadr-request-and-tasking-flow",
+  "organizationsInvolved": [
+    "indopacom",
+    "pacaf",
+    "pacaf-theater-aoc",
+    "amc-618-aoc-tacc",
+    "15th-wing",
+    "535th-airlift-squadron",
+    "ustranscom",
+    "18th-aeromedical-evacuation-squadron",
+    "557th-weather-wing",
+    "17th-operational-weather-squadron"
+  ],
+  "rolesInvolved": [
+    "cfacc",
+    "dirmobfor",
+    "combat-plans-division-chief",
+    "combat-operations-division-duty-officer",
+    "mission-commander",
+    "aircraft-commander",
+    "copilot",
+    "flight-nurse-medical-crew-director",
+    "aeromedical-evacuation-technician",
+    "staff-weather-officer"
+  ],
+  "route": {
+    "origin": "Austere/forward airfield near the affected area, Luzon, Philippines",
+    "destination": "Kadena Air Base, Japan (higher-echelon medical treatment facility, home of the 18th AES)",
+    "stagingNote": "Real intratheater AE often stages through an intermediate facility (e.g. Clark AB) before a higher-echelon destination; v1 models a single direct leg, same simplification as Missions 1-2's unmodeled en-route staging/refuel point."
+  },
+  "patients": {
+    "type": "Disaster-relief personnel and local casualties requiring evacuation to higher-echelon care",
+    "contents": "Mixed litter and ambulatory patients injured during typhoon relief operations",
+    "count": null,
+    "litterCount": null,
+    "ambulatoryCount": null,
+    "precedenceMix": "Representative mix across Urgent, Priority, and Routine precedence categories — no specific real casualty figures modeled, consistent with the classification boundary (AGENTS.md Section 3)."
+  },
+  "timeline": [
+    { "step": 1, "description": "Typhoon strikes Luzon; host-nation/embassy assistance request initiated — shared context with Missions 1-2.", "doctrineProcessStep": 1 },
+    { "step": 2, "description": "Injured disaster-relief personnel and local casualties requiring evacuation are identified; a Patient Movement Request (PMR) is submitted to TPMRC, running in parallel to USAID BHA's validation of the broader unique-DoD-capability requirement.", "doctrineProcessStep": 2 },
+    { "step": 3, "description": "Request enters the Mission Tasking Matrix process to the Secretary of Defense.", "doctrineProcessStep": 3 },
+    { "step": 4, "description": "INDOPACOM stands up a Joint Task Force (shared with Missions 1-2).", "doctrineProcessStep": 4 },
+    { "step": 5, "description": "PACAF theater AOC tasks the sortie via the ATO; DIRMOBFOR coordinates mobility flow. TPMRC validates the PMR and coordinates patient movement requirements with the AOC's Air Mobility Division (whose Aeromedical Evacuation Control Team plans/coordinates AE missions), informed by the AOC Weather Support Team's mission forecast.", "doctrineProcessStep": 5 },
+    { "step": 6, "description": "618 AOC/TACC tasks the specific tail number and crew from the 535th Airlift Squadron, augmented by an 18th AES aeromedical evacuation crew (Flight Nurse Medical Crew Director and AE Technician). TPMRC provides the validated PMR/manifest to the Medical Crew Director; the Aircraft Commander receives a pre-flight Flight Weather Briefing (DD Form 175-1) from the Staff Weather Officer.", "doctrineProcessStep": 6 },
+    { "step": 7, "description": "Sortie executed: the Medical Crew Director verifies the patient manifest against the TPMRC-validated PMR, patients are loaded and configured with patient-care equipment, and the AE crew provides in-flight care during transit to the higher-echelon facility — modeled as a state transition in v1, with no in-flight physiological simulation. Weather data continues to stream to both the AOC and the aircraft throughout, informing the Aircraft Commander's weather go/no-go decisions.", "doctrineProcessStep": null },
+    { "step": 8, "description": "Mission report closes the loop back through the C2 chain, including patient hand-off status at the destination facility.", "doctrineProcessStep": null }
+  ],
+  "doctrineSource": [
+    {
+      "publication": "AFI 48-307 (En Route Care and Aeromedical Evacuation Medical Operations) / DAFI 48-107 series; USTRANSCOM patient movement doctrine",
+      "note": "Grounds the mission concept itself: AE's role as a standing USAF capability supporting patient movement, coordinated through the PMR/TPMRC process, is real and well-documented (see the 18th Aeromedical Evacuation Squadron Organization record and tpmrc C2Node record for sourcing detail). This mission is a fictionalized illustration of that capability applied to this scenario's HA/DR context, not a report of an actual mission."
+    }
+  ]
+}

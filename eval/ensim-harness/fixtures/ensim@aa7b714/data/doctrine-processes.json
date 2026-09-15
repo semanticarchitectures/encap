@@ -1,0 +1,104 @@
+[
+  {
+    "id": "hadr-request-and-tasking-flow",
+    "name": "HA/DR Request and Tasking Flow",
+    "description": "The chain from a host-nation disaster relief request to a tasked airlift sortie.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "description": "Host-nation government / U.S. Embassy requests assistance following a disaster.",
+        "actorRoleId": null,
+        "actorC2NodeId": null,
+        "actorOrganizationId": null,
+        "producesArtifact": "Assistance request"
+      },
+      {
+        "stepNumber": 2,
+        "description": "USAID's Bureau for Humanitarian Assistance (BHA) validates the need for a unique DoD capability.",
+        "actorRoleId": null,
+        "actorC2NodeId": null,
+        "actorOrganizationId": null,
+        "producesArtifact": "Validated requirement"
+      },
+      {
+        "stepNumber": 3,
+        "description": "Request enters the Mission Tasking Matrix (MiTaM) process to the Secretary of Defense.",
+        "actorRoleId": null,
+        "actorC2NodeId": null,
+        "actorOrganizationId": null,
+        "producesArtifact": "Approved tasking authority"
+      },
+      {
+        "stepNumber": 4,
+        "description": "INDOPACOM stands up a Joint Task Force to coordinate the response.",
+        "actorRoleId": null,
+        "actorC2NodeId": null,
+        "actorOrganizationId": "indopacom",
+        "producesArtifact": "Joint Task Force stand-up order"
+      },
+      {
+        "stepNumber": 5,
+        "description": "PACAF theater AOC's Air Mobility Division (AMD) tasks the airlift sortie, with DIRMOBFOR coordinating the mobility flow. AMD plans/coordinates/tasks air mobility missions in a process run parallel to and integrated with the main ATO cycle.",
+        "actorRoleId": "dirmobfor",
+        "actorC2NodeId": "aoc-air-mobility-division",
+        "actorOrganizationId": null,
+        "producesArtifact": "ATO line"
+      },
+      {
+        "stepNumber": 6,
+        "description": "618 AOC/TACC tasks the specific tail number and crew.",
+        "actorRoleId": null,
+        "actorC2NodeId": "618-aoc-tacc-tasking-node",
+        "actorOrganizationId": null,
+        "producesArtifact": "Mission tasking"
+      }
+    ],
+    "doctrineSource": [
+      { "publication": "DoDD 5100.46" },
+      { "publication": "JP 3-17" },
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.8", "note": "Added 2026-09-05 to ground step 5's AMD attribution." }
+    ]
+  },
+  {
+    "id": "ato-cycle",
+    "name": "Air Tasking Order (ATO) Cycle",
+    "description": "The AOC's daily cycle for producing the ATO and its supporting documents.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "description": "Combat Plans Division (CPD) builds the ATO (within 48 hours prior to execution).",
+        "actorRoleId": "combat-plans-division-chief",
+        "actorC2NodeId": "aoc-combat-plans-division",
+        "actorOrganizationId": null,
+        "producesArtifact": "Draft ATO"
+      },
+      {
+        "stepNumber": 2,
+        "description": "CFACC approves the ATO.",
+        "actorRoleId": "cfacc",
+        "actorC2NodeId": null,
+        "actorOrganizationId": null,
+        "producesArtifact": "Approved ATO"
+      },
+      {
+        "stepNumber": 3,
+        "description": "SPINS, Airspace Control Order (ACO), and Airspace Control Plan (ACP) are published alongside the ATO by CPD.",
+        "actorRoleId": null,
+        "actorC2NodeId": "aoc-combat-plans-division",
+        "actorOrganizationId": null,
+        "producesArtifact": "SPINS / ACO / ACP"
+      },
+      {
+        "stepNumber": 4,
+        "description": "Combat Operations Division (COD) executes the approved ATO/ACO during its 24-hour execution period.",
+        "actorRoleId": "combat-operations-division-duty-officer",
+        "actorC2NodeId": "aoc-combat-operations-division",
+        "actorOrganizationId": null,
+        "producesArtifact": "Sortie/mission execution status"
+      }
+    ],
+    "doctrineSource": [
+      { "publication": "AFMAN 13-1AOC Vol 3", "section": "25 Jun 2024 edition, §2.3.5, §2.3.6, §4.3", "note": "Corrected 2026-09-05 from a generic AFDP 3-0.1 citation to this primary source, which separates ATO production (CPD) from ATO execution (COD) — the original version of this process conflated the two into a single COD step." }
+    ]
+  }
+]

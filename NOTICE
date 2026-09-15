@@ -1,0 +1,34 @@
+ENCAP
+Copyright 2026 Semantic Architectures
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes attributed material from the following third-party
+works:
+
+  - Open Knowledge Format (OKF) v0.2 spec and sample bundles
+    (github.com/GoogleCloudPlatform/knowledge-catalog), Copyright Google
+    LLC, licensed under the Apache License, Version 2.0. `okf-format/`
+    implements the OKF v0.2 specification (okf/SPEC.md); its test fixtures
+    under `packages/okf-format/test/fixtures/okf-samples/` are verbatim
+    copies of that repository's `okf/bundles/` sample bundles
+    (acme_retail, crypto_bitcoin, ga4, stackoverflow), used unmodified for
+    round-trip conformance testing under the terms of the Apache License.
+
+  - ENSIM (github.com/semanticarchitectures/ENSIM), an unpublished sibling
+    project also licensed under the Apache License, Version 2.0.
+    `eval/ensim-harness/fixtures/ensim@<sha>/` is a pinned-commit snapshot
+    of its `packages/org-doctrine-model/data/` and `schema/` directories,
+    fetched by `just fetch-ensim`; see that directory's `provenance.json`
+    for the exact commit and fetch date. `AGENTS.md` in this repo is
+    adapted from ENSIM's `AGENTS.md`.
+
+This product does not vendor, modify, or redistribute Open-Arsenal /
+ModularAF or Portico; see ENSIM's own NOTICE for those third-party
+references, which do not apply to ENCAP directly.
+
+Doctrine publications referenced in `fixtures/doctrine/manifest.json` are
+U.S. Government works; each entry records its own distribution statement.
+Only documents marked "approved for public release, distribution
+unlimited" are committed to or synthesized by this repository (see
+AGENTS.md Section 3 and docs/PLAN.md Section 3.5).

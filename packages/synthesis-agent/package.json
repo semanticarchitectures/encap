@@ -1,0 +1,15 @@
+{
+  "name": "@encap/synthesis-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "File(s) in, one cited OKF bundle out. Reasons inside an operating-model bundle rather than in a vacuum.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "echo \"@encap/synthesis-agent: no code yet (Phase 2, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/synthesis-agent: no tests yet\"",
+    "validate": "echo \"@encap/synthesis-agent: nothing to validate yet\""
+  }
+}

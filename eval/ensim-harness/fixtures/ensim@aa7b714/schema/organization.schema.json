@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/organization.schema.json",
+  "title": "Organization",
+  "description": "A named unit or command in the enterprise (Section 6 of ARCHITECTURE.md).",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "name": { "type": "string" },
+    "shortName": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["MAJCOM", "NumberedAirForce", "Wing", "Group", "Squadron", "OperationsCenter", "CombatantCommand", "JointTaskForce", "Other"]
+    },
+    "echelon": {
+      "type": "string",
+      "description": "Free text, e.g. 'Command', 'Wing', 'Squadron', 'Operational-level C2 center'."
+    },
+    "parentId": {
+      "description": "id of the parent Organization, or null if top-level.",
+      "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+    },
+    "homeStation": { "type": "string" },
+    "description": { "type": "string" },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "name", "type", "echelon", "parentId", "doctrineSource"],
+  "additionalProperties": false
+}

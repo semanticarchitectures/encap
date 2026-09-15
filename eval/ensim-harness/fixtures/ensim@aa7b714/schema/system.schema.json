@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/system.schema.json",
+  "title": "System",
+  "description": "A piece of equipment or infrastructure that personnel (Roles) interact with during mission execution — an aircraft, a communications system, a security/access-control system, an airdrop mechanism. Deliberately representative, not a real fielded system's actual specifications — see AGENTS.md Section 3, the classification boundary. Systems are nodes in the mission execution interaction network alongside Roles, C2Nodes, and Organizations (see Interaction).",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "name": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["Aircraft", "Communications", "SecurityAccessControl", "AirdropMechanism", "MedicalEquipment", "WeatherSystem"]
+    },
+    "description": { "type": "string" },
+    "commsLink": {
+      "$ref": "common.schema.json#/$defs/commsLink",
+      "description": "For a Communications-, SecurityAccessControl-, or WeatherSystem-type System: whether it carries verbal or digital traffic, its medium, and — if digital — its protocol and message format. Omitted for Systems that are not themselves a communications channel (e.g. an Aircraft, AirdropMechanism, or MedicalEquipment)."
+    },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "name", "type", "description", "doctrineSource"],
+  "additionalProperties": false
+}

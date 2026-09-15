@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/interaction.schema.json",
+  "title": "Interaction",
+  "description": "A structural (doctrinal), not mission-instance-specific, edge in the mission execution interaction network: who or what interacts with who or what, and how. Sits alongside DoctrineProcess as a description of how the enterprise normally operates, at a finer grain — individual personnel and the systems they use, rather than organizational tasking flow. See ARCHITECTURE.md Section 6.",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "from": { "$ref": "common.schema.json#/$defs/participant" },
+    "to": { "$ref": "common.schema.json#/$defs/participant" },
+    "interactionType": {
+      "type": "string",
+      "enum": ["Operates", "CommunicatesVia", "AuthenticatesTo", "CoordinatesWith", "Commands", "Informs", "Deploys"]
+    },
+    "description": { "type": "string" },
+    "commsLink": {
+      "$ref": "common.schema.json#/$defs/commsLink",
+      "description": "For a CommunicatesVia, Informs, or AuthenticatesTo interaction: whether this specific hop is verbal or digital, its medium, and — if digital — its protocol and message format. Omitted for interaction types that describe an organizational/operational relationship rather than a literal communications hop (Operates, CoordinatesWith, Commands, Deploys)."
+    },
+    "viaSystem": {
+      "$ref": "common.schema.json#/$defs/participant",
+      "description": "When this interaction's information flow is physically relayed through a System not already named as 'from' or 'to' (e.g. a role-to-role Informs relayed over an intercom or radio net), the System (kind: 'system') that carries it."
+    },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "from", "to", "interactionType", "description", "doctrineSource"],
+  "additionalProperties": false
+}

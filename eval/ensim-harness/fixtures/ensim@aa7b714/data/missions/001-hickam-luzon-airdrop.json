@@ -1,0 +1,54 @@
+{
+  "id": "mission-001-hickam-luzon-airdrop",
+  "name": "Hickam-Luzon Humanitarian Airdrop",
+  "status": "Draft",
+  "fictionalized": true,
+  "precedent": "Modeled on the doctrinal and geographic pattern of Operation Damayan (Nov 2013, Typhoon Haiyan relief) — this is a fictionalized scenario, not a re-creation of an actual classified mission.",
+  "doctrineProcessId": "hadr-request-and-tasking-flow",
+  "organizationsInvolved": [
+    "indopacom",
+    "pacaf",
+    "pacaf-theater-aoc",
+    "amc-618-aoc-tacc",
+    "15th-wing",
+    "535th-airlift-squadron",
+    "557th-weather-wing",
+    "17th-operational-weather-squadron"
+  ],
+  "rolesInvolved": [
+    "cfacc",
+    "dirmobfor",
+    "combat-plans-division-chief",
+    "combat-operations-division-duty-officer",
+    "mission-commander",
+    "aircraft-commander",
+    "copilot",
+    "loadmaster",
+    "staff-weather-officer"
+  ],
+  "route": {
+    "origin": "Joint Base Pearl Harbor-Hickam, HI",
+    "destination": "Drop zone, Luzon, Philippines",
+    "stagingNote": "En route staging/refuel point not modeled in v1."
+  },
+  "cargo": {
+    "type": "Container Delivery System (CDS) bundles",
+    "contents": "Food, water, medical supplies",
+    "bundleCount": null
+  },
+  "timeline": [
+    { "step": 1, "description": "Typhoon strikes Luzon; host-nation/embassy assistance request initiated.", "doctrineProcessStep": 1 },
+    { "step": 2, "description": "USAID BHA validates the requirement for a unique DoD capability.", "doctrineProcessStep": 2 },
+    { "step": 3, "description": "Request enters the Mission Tasking Matrix process to the Secretary of Defense.", "doctrineProcessStep": 3 },
+    { "step": 4, "description": "INDOPACOM stands up a Joint Task Force.", "doctrineProcessStep": 4 },
+    { "step": 5, "description": "PACAF theater AOC tasks the sortie via the ATO; DIRMOBFOR coordinates mobility flow. The AOC Weather Support Team begins fusing 17th Operational Weather Squadron theater forecasts into mission-specific weather products.", "doctrineProcessStep": 5 },
+    { "step": 6, "description": "618 AOC/TACC tasks the specific tail number and crew from the 535th Airlift Squadron. The tasked Aircraft Commander receives a pre-flight Flight Weather Briefing (DD Form 175-1) from the Staff Weather Officer.", "doctrineProcessStep": 6 },
+    { "step": 7, "description": "Sortie generated and mission executed via CDS bundle release over the drop zone — modeled as a state transition in v1, with no flight dynamics or drop-zone physics. Weather data continues to stream to both the AOC and the aircraft throughout, informing the Aircraft Commander's weather go/no-go decisions.", "doctrineProcessStep": null },
+    { "step": 8, "description": "Aircraft returns to Hickam AFB and lands — modeled as a state transition, not a flown return leg. The same Aircraft Commander/ATC coordination and continuous JAAWIN-class weather monitoring from the outbound leg apply to the recovery, including the weather go/no-go decision's divert option.", "doctrineProcessStep": null },
+    { "step": 9, "description": "Aircraft Commander leads the post-mission crew debrief, reporting execution results, any discrepancies, and mission outcome to the Mission Commander — the input the mission report is built from.", "doctrineProcessStep": null },
+    { "step": 10, "description": "Mission report closes the loop back through the C2 chain.", "doctrineProcessStep": null }
+  ],
+  "doctrineSource": [
+    { "publication": "Operation Damayan reporting", "note": "Air & Space Forces Magazine and Joint Force Quarterly coverage of the 2013 Typhoon Haiyan response, used as scenario precedent only — this record is a fictionalized scenario, not a report of a real mission." }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@encap/personnel-console",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Governance layer for human-agent interaction: session identity bound to a role, every agent action gated by access control, every response carrying its citations.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"@encap/personnel-console: no code yet (Phase 6, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/personnel-console: no tests yet\"",
+    "validate": "echo \"@encap/personnel-console: nothing to validate yet\""
+  }
+}

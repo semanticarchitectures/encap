@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/role.schema.json",
+  "title": "Role",
+  "description": "A position within an organization or C2 node, with responsibilities/authorities (Section 6 of ARCHITECTURE.md).",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "name": { "type": "string" },
+    "organizationId": {
+      "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+    },
+    "c2NodeId": {
+      "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+    },
+    "responsibilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "authorities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "reportsToRoleId": {
+      "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+    },
+    "training": {
+      "type": "array",
+      "description": "Formal training/qualification pipeline for this role. Optional — not every Role record has been researched for this yet; absence means 'not yet modeled', not 'no training required'.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "institution": { "type": "string" },
+          "duration": { "type": "string" },
+          "description": { "type": "string" },
+          "doctrineSource": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+            "minItems": 1
+          }
+        },
+        "required": ["name", "description", "doctrineSource"],
+        "additionalProperties": false
+      }
+    },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "name", "responsibilities", "doctrineSource"],
+  "additionalProperties": false
+}

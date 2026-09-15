@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/doctrine-process.schema.json",
+  "title": "DoctrineProcess",
+  "description": "A named, sequenced process with the roles/nodes involved at each step and the artifacts produced (Section 6 of ARCHITECTURE.md).",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "stepNumber": { "type": "integer", "minimum": 1 },
+          "description": { "type": "string" },
+          "actorRoleId": {
+            "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+          },
+          "actorC2NodeId": {
+            "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+          },
+          "actorOrganizationId": {
+            "description": "Use when the actor is an organization as a whole rather than a specific role or C2 node (e.g. 'INDOPACOM stands up a Joint Task Force').",
+            "anyOf": [{ "$ref": "common.schema.json#/$defs/entityId" }, { "type": "null" }]
+          },
+          "producesArtifact": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }]
+          }
+        },
+        "required": ["stepNumber", "description"],
+        "additionalProperties": false
+      }
+    },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "name", "steps", "doctrineSource"],
+  "additionalProperties": false
+}

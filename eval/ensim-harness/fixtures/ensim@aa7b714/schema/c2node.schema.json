@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/c2node.schema.json",
+  "title": "C2Node",
+  "description": "An organization or sub-element that performs tasking, coordination, or reporting functions (Section 6 of ARCHITECTURE.md) — distinct from the units that execute missions.",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "name": { "type": "string" },
+    "organizationId": { "$ref": "common.schema.json#/$defs/entityId" },
+    "function": {
+      "type": "string",
+      "enum": ["Tasking", "Coordination", "Reporting", "ExecutionMonitoring"]
+    },
+    "producesArtifacts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "e.g. 'Air Tasking Order (ATO)', 'SPINS', 'Airspace Control Order (ACO)', 'Mission tasking'."
+    },
+    "description": { "type": "string" },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "name", "organizationId", "function", "doctrineSource"],
+  "additionalProperties": false
+}

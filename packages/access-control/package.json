@@ -1,0 +1,15 @@
+{
+  "name": "@encap/access-control",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Role -> access assignments (which documents, document types, and capabilities a Role may reach), enforced at the query API.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "echo \"@encap/access-control: no code yet (Phase 5, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/access-control: no tests yet\"",
+    "validate": "echo \"@encap/access-control: nothing to validate yet\""
+  }
+}

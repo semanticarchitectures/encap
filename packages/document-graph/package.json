@@ -1,0 +1,15 @@
+{
+  "name": "@encap/document-graph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Derived, rebuildable SQLite (FTS + vectors) index over an OKF bundle, with a query API. Never a second store that can drift from the bundle.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "echo \"@encap/document-graph: no code yet (Phase 4, see docs/PLAN.md Section 5)\"",
+    "test": "echo \"@encap/document-graph: no tests yet\"",
+    "validate": "echo \"@encap/document-graph: nothing to validate yet\""
+  }
+}

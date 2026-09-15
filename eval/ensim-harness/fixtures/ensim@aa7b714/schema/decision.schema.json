@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ensim.dev/schema/decision.schema.json",
+  "title": "Decision",
+  "description": "A choice point a Role makes during mission execution, given specific information inputs (informedBy) and criteria — a finer grain than DoctrineProcess (organizational tasking) or Interaction (a structural edge): what a person actually has to decide, not just who they talk to. See ARCHITECTURE.md Section 6.",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/entityId" },
+    "roleId": {
+      "$ref": "common.schema.json#/$defs/entityId",
+      "description": "The Role that makes this decision."
+    },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "informedBy": {
+      "type": "array",
+      "description": "The nodes (roles, systems, etc.) whose information feeds this decision.",
+      "items": { "$ref": "common.schema.json#/$defs/participant" },
+      "minItems": 1
+    },
+    "criteria": {
+      "type": "string",
+      "description": "What determines the outcome — the standard the Role applies."
+    },
+    "possibleOutcomes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "doctrineSource": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/doctrineSource" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "roleId", "name", "description", "informedBy", "criteria", "possibleOutcomes", "doctrineSource"],
+  "additionalProperties": false
+}
