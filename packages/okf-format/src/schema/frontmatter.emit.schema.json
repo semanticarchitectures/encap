@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://encap.dev/schema/okf/frontmatter.emit.schema.json",
+  "title": "OKF v0.2 frontmatter — emit (strict)",
+  "description": "The schema for frontmatter THIS PROJECT'S tooling produces (AGENTS.md Section 5): additionalProperties: false against the known field vocabulary, generated.by always required (AGENTS.md Section 4), and runtime required when type is Attested Computation (spec §10.2). Not used to validate bundles read from elsewhere — see frontmatter.read.schema.json for that.",
+  "type": "object",
+  "required": ["type", "generated"],
+  "additionalProperties": false,
+  "properties": {
+    "type": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "resource": { "type": "string", "format": "uri-reference" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/sourceEntryEmit" } },
+    "usage_window": { "$ref": "#/$defs/usageWindow" },
+    "generated": { "$ref": "#/$defs/generatedEmit" },
+    "verified": {
+      "anyOf": [
+        { "$ref": "#/$defs/verifiedEntryEmit" },
+        { "type": "array", "items": { "$ref": "#/$defs/verifiedEntryEmit" } }
+      ]
+    },
+    "status": { "type": "string", "enum": ["draft", "stable", "deprecated"] },
+    "stale_after": { "type": "string", "format": "date-time" },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relationEntryEmit" } },
+    "okf_version": { "type": "string" },
+    "runtime": { "type": "string" },
+    "parameters": { "type": "array", "items": { "$ref": "#/$defs/computationParameterEmit" } },
+    "computation": { "type": "string", "format": "uri-reference" },
+    "executor": { "$ref": "#/$defs/executorEmit" },
+    "attester": { "$ref": "#/$defs/attesterEmit" }
+  },
+  "if": {
+    "properties": { "type": { "const": "Attested Computation" } },
+    "required": ["type"]
+  },
+  "then": { "required": ["type", "generated", "runtime"] },
+  "$defs": {
+    "sourceEntryEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "resource": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "usage_count": { "type": "number" },
+        "last_modified": { "type": "string", "format": "date-time" },
+        "usage_window": { "$ref": "#/$defs/usageWindow" }
+      }
+    },
+    "usageWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "properties": {
+        "from": { "type": "string", "format": "date-time" },
+        "to": { "type": "string", "format": "date-time" }
+      }
+    },
+    "generatedEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["by"],
+      "properties": {
+        "by": { "type": "string", "minLength": 1 },
+        "at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "verifiedEntryEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["by", "at"],
+      "properties": {
+        "by": { "type": "string", "minLength": 1 },
+        "at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "relationEntryEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "target"],
+      "description": "Schema only — the vocabulary of `type` values (reports-to, commands, informs, ...) is validated by @encap/operating-model, not here (docs/PLAN.md Section 3.1).",
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    },
+    "computationParameterEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" }
+      }
+    },
+    "executorEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource"],
+      "properties": {
+        "resource": { "type": "string", "format": "uri-reference" },
+        "receipt": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "attesterEmit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource"],
+      "properties": {
+        "resource": { "type": "string", "format": "uri-reference" }
+      }
+    }
+  }
+}

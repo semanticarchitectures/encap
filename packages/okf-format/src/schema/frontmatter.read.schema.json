@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://encap.dev/schema/okf/frontmatter.read.schema.json",
+  "title": "OKF v0.2 frontmatter — read (permissive)",
+  "description": "Per okf/SPEC.md §11, a concept is conformant if its frontmatter is parseable YAML with a non-empty `type`. Everything else here types the recommended and optional families SHOULD they be present, but additionalProperties is true everywhere: consumers MUST preserve/tolerate unknown keys (§4.1), never reject a document for them.",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "resource": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/sourceEntryRead" } },
+    "usage_window": { "$ref": "#/$defs/usageWindow" },
+    "generated": { "$ref": "#/$defs/generatedRead" },
+    "verified": {
+      "anyOf": [
+        { "$ref": "#/$defs/verifiedEntryRead" },
+        { "type": "array", "items": { "$ref": "#/$defs/verifiedEntryRead" } }
+      ]
+    },
+    "status": { "type": "string", "enum": ["draft", "stable", "deprecated"] },
+    "stale_after": { "type": "string", "format": "date-time" },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relationEntryRead" } },
+    "okf_version": { "type": "string" },
+    "runtime": { "type": "string" },
+    "parameters": { "type": "array", "items": { "$ref": "#/$defs/computationParameterRead" } },
+    "computation": { "type": "string" },
+    "executor": { "$ref": "#/$defs/executorRead" },
+    "attester": { "$ref": "#/$defs/attesterRead" }
+  },
+  "$defs": {
+    "sourceEntryRead": {
+      "type": "object",
+      "required": ["resource"],
+      "properties": {
+        "id": { "type": "string" },
+        "resource": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "usage_count": { "type": "number" },
+        "last_modified": { "type": "string", "format": "date-time" },
+        "usage_window": { "$ref": "#/$defs/usageWindow" }
+      }
+    },
+    "usageWindow": {
+      "type": "object",
+      "required": ["from", "to"],
+      "properties": {
+        "from": { "type": "string", "format": "date-time" },
+        "to": { "type": "string", "format": "date-time" }
+      }
+    },
+    "generatedRead": {
+      "type": "object",
+      "required": ["by"],
+      "properties": {
+        "by": { "type": "string", "minLength": 1 },
+        "at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "verifiedEntryRead": {
+      "type": "object",
+      "required": ["by", "at"],
+      "properties": {
+        "by": { "type": "string", "minLength": 1 },
+        "at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "relationEntryRead": {
+      "type": "object",
+      "required": ["type", "target"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 }
+      }
+    },
+    "computationParameterRead": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "required": { "type": "boolean" }
+      }
+    },
+    "executorRead": {
+      "type": "object",
+      "required": ["resource"],
+      "properties": {
+        "resource": { "type": "string", "minLength": 1 },
+        "receipt": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "attesterRead": {
+      "type": "object",
+      "required": ["resource"],
+      "properties": {
+        "resource": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
