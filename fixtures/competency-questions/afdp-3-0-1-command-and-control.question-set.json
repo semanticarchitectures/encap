@@ -1,0 +1,49 @@
+{
+  "$schema": "./question-set.schema.json",
+  "fixtureId": "afdp-3-0-1-command-and-control",
+  "description": "Phase 2 gate (docs/PLAN.md Section 5): questions a competent staff officer should be able to answer from AFDP 3-0.1's Chapter 1 (Command and Control Overview) and the start of Chapter 2, grounded directly against the document text.",
+  "questions": [
+    {
+      "id": "distributed-control-definition",
+      "question": "What is Distributed Control, and who does the air component commander delegate it to?",
+      "expectedAnswerNotes": "Distributed Control is the delegation of specified authorities from the air component commander to subordinate commanders to C2 (command and control) assigned operations — i.e., to conduct the C2 process. It extends from the air component commander to subordinate commanders, potentially down to the wing level or a middle echelon (e.g. an air expeditionary task force). A correct answer should note it is NOT limited to OPCON or TACON delegation.",
+      "sourceAnchor": "p. 5, \"DISTRIBUTED CONTROL\" section, Chapter 1"
+    },
+    {
+      "id": "c2-process-four-activities",
+      "question": "What are the four major activities that make up the C2 process?",
+      "expectedAnswerNotes": "Planning, preparing, executing, and assessing. A correct answer names all four; missing one or more, or substituting a different term (e.g. \"deciding\"), is wrong.",
+      "sourceAnchor": "p. 1 (bullet list, Chapter 1) and p. 9 (Chapter 2 opening)"
+    },
+    {
+      "id": "distributed-control-vs-decentralized-execution",
+      "question": "How does Distributed Control differ from decentralized execution?",
+      "expectedAnswerNotes": "Distributed Control delegates authority to subordinate COMMANDERS to conduct the C2 process — it is about command authority. Decentralized execution delegates EXECUTION authority to subordinates who act on the superior commander's behalf without holding command responsibility over the units involved (e.g. a mission commander) — it is often categorized as distributed battle management. The document states they are \"separate and distinct,\" and that commanders with Distributed Control have MORE authority than forces executing decentralized operations. A correct answer must capture that these are genuinely different things, not two names for the same delegation.",
+      "sourceAnchor": "p. 8, \"DECENTRALIZED EXECUTION\" section, final paragraph, Chapter 1"
+    },
+    {
+      "id": "air-component-commander-dual-roles",
+      "question": "The air component commander's operational authorities are generally exercised through two roles at once. What are they, and what type of control does the JFC typically delegate to each?",
+      "expectedAnswerNotes": "COMAFFOR (over USAF forces) and JFACC — joint force air component commander (over joint air forces made available for tasking). The JFC generally delegates the COMAFFOR operational control (OPCON) and the JFACC tactical control (TACON). A correct answer names both roles and both control types, correctly paired.",
+      "sourceAnchor": "p. 2, \"THE AIR COMPONENT COMMANDER\" section, Chapter 1"
+    },
+    {
+      "id": "decision-cycle-stages",
+      "question": "What are the four stages of the commander's decision cycle described in this document, and what well-known conceptual model does the document compare it to?",
+      "expectedAnswerNotes": "Understand, Visualize, Decide, Direct — presented as a continuous cycle. The document explicitly compares it to Colonel John Boyd's observe-orient-decide-act (OODA) loop as a representative conceptual model, while noting this specific cycle is its own model. A correct answer names all four stages (in reasonable paraphrase) and identifies the OODA loop comparison.",
+      "sourceAnchor": "p. 2-3, \"DECISION CYCLE\" section, Chapter 1"
+    },
+    {
+      "id": "battle-rhythm-theater-level",
+      "question": "What is a battle rhythm, and who typically collaborates to develop the synchronized version of it at the theater level?",
+      "expectedAnswerNotes": "A battle rhythm integrates decision cycles together on a single time schedule to support the commander at the required speed — a logical arrangement of boards, centers, cells, and working groups with a clearly defined purpose and outcome. At the theater level, the AOC director and the Air Force forces (AFFOR) chief of staff (COS) often collaborate to develop a synchronized battle rhythm. A correct answer names both roles (AOC director, AFFOR COS), not just one.",
+      "sourceAnchor": "p. 3, \"Battle Rhythm\" subsection, Chapter 1"
+    },
+    {
+      "id": "conditions-based-authorities-risk",
+      "question": "What does \"conditions-based authorities\" mean in the context of Distributed Control, and what goes wrong if a subordinate is given too little or too much authority?",
+      "expectedAnswerNotes": "Conditions-based authorities are authorities that are often limited in duration and identified in plans approved by authorized commanders, to facilitate execution that meets commander's intent. Too little authority may inadvertently encourage a subordinate to operate beyond their limitations; too much authority (exceeding situation or mission requirements) may result in chaotic, uncoordinated operations. A correct answer captures both failure directions, not just one.",
+      "sourceAnchor": "p. 5, \"Conditions-based Authorities\" subsection, Chapter 1"
+    }
+  ]
+}

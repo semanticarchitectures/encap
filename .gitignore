@@ -16,3 +16,7 @@ fixtures/doctrine/*.pdf
 # packages/okf-format/scripts/setup-docling.sh) — Python, never committed,
 # same contained-dependency pattern as ENSIM's vendor/ for Portico.
 .venv-docling/
+
+# Scratch output from eval/runner/scripts/run-fixture-gate.mjs (real,
+# non-deterministic LLM output) — not committed by default.
+eval/runner/.gate-output/

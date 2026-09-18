@@ -1,6 +1,7 @@
 import { getDefaultClient, DEFAULT_MODEL } from "./client.js";
 import { multiFileSystemPrompt, multiFileUserMessage, singleFileSystemPrompt, singleFileUserMessage } from "./prompts.js";
 import { parseSynthesisOutput } from "./parse-response.js";
+import { ensureFootnoteDefinitions, setGeneratedMetadata } from "./post-process.js";
 import type { SynthesisInputDocument, SynthesisOptions, SynthesisResult } from "./types.js";
 
 const MAX_TOKENS = 16000;
@@ -30,7 +31,9 @@ async function runSynthesis(system: string, userMessage: string, outputPath: str
     throw new Error(`synthesis refused by the model (stop_reason: refusal)`);
   }
   const raw = extractText(response.content);
-  const concept = parseSynthesisOutput(raw, outputPath);
+  let concept = parseSynthesisOutput(raw, outputPath);
+  concept = ensureFootnoteDefinitions(concept);
+  concept = setGeneratedMetadata(concept, model);
 
   return {
     concept,
