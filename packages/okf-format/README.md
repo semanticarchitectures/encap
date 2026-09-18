@@ -50,10 +50,10 @@ repo goes through this one's API.
   key from `docs/PLAN.md` Section 3.1. Schema only (`{ type, target,
   note? }`) — the vocabulary of `type` values belongs to
   `@encap/operating-model`.
-- **Ingest** (`ingest.ts`): the process-boundary contract from
-  `docs/PLAN.md` Section 3.4 — a subprocess extractor turns a PDF into
-  Markdown. See "Ingest / extractor swapping" below; **gate (b) is
-  blocked** until `fixtures/doctrine/manifest.json` has a real PDF.
+- **Ingest** (`ingest.ts`, `docling-json.ts`): the process-boundary
+  contract from `docs/PLAN.md` Section 3.4 — a subprocess extractor turns
+  a PDF into Markdown with page anchors. See "Ingest / extractor
+  swapping" below.
 
 ## Phase 1 exit gate status
 
@@ -72,15 +72,31 @@ verified `acme_retail` concept and correctly failing a `stackoverflow`
 concept whose footnotes never join to a declared source — bare OKF
 conformance allows that; `AGENTS.md` Section 4 does not).
 
-**(b) — blocked, not started.** `fixtures/doctrine/manifest.json` is
-still empty (Kevin's download step, `docs/PLAN.md` Section 8). Per
-`docs/KICKOFF.md`: stopping here rather than substituting a different
-document. The ingest module (`ingest.ts`) is implemented and unit-tested
-against a fake extractor (`test/ingest.test.ts`) so the process-boundary
-contract itself is proven; what's unverified is docling's *actual*
-Markdown output against a real PDF — see the doc comment on
-`doclingExtractor` for exactly what's confirmed (its CLI flags, via the
-published CLI reference) versus not (whether/how it emits page anchors).
+**(b) — done, 2026-09-18.** `fixtures/doctrine/manifest.json` now has
+three real PDFs (AFMAN 13-1AOC Vol 3, AFDP 3-0.1, AFDP 3-36). Verified
+end-to-end against all three via `ingestDocument()` calling a real
+docling 2.129.0 install (`just setup-docling`), not just the JSON
+renderer in isolation: page anchors present and in document order for
+every page converted, headings/paragraphs/tables all legible and
+citable. Two real findings from that verification, both already reflected
+in the code (see `ingest.ts`'s `doclingExtractor` and `docling-json.ts`'s
+module doc comments for the full account):
+
+1. The installed docling's CLI needs a `convert` subcommand and
+   `--output`/`--to`/`--image-export-mode` flags — a different shape
+   than the *published* CLI reference described (which this package's
+   Phase 1 commit had originally trusted without a real install to check
+   against). Fixed once a real docling was available to verify against.
+2. `docling convert --to md` emits zero page information — no anchors,
+   no breaks. `--to json` (docling's native "DoclingDocument" schema)
+   does carry `prov[].page_no` on every element, so `docling-json.ts`
+   renders that JSON into page-anchored Markdown itself; docling never
+   produces page-anchored Markdown on its own. This also caught a second
+   real bug: one real table's docling `label` was `document_index` (a
+   TOC-shaped table), not `table` — dispatching on the literal label
+   string silently dropped it, fixed by dispatching on shape instead
+   (`test/docling-json.test.ts` asserts against real, trimmed docling
+   output specifically to keep this pinned).
 
 ## Ingest / extractor swapping
 
@@ -97,12 +113,19 @@ const marker: ExtractorConfig = {
   command: "marker_single",
   buildArgs: (inputPath, outputDir) => [inputPath, "--output_dir", outputDir],
   findOutput: (inputPath, outputDir) => /* ... */,
+  pageAnchorsVerified: false, // set true once you've actually checked
 };
 
 await ingestDocument("/path/to/doc.pdf", marker);
 ```
 
-The default (`doclingExtractor`) can also be redirected to a different
-binary on `PATH` via the `ENCAP_PDF_EXTRACTOR_CMD` environment variable
-without writing a new config, as long as it accepts docling's own flag
-shape (`<input> -o <dir> --to md`).
+### Setting up the default extractor (docling)
+
+```
+just setup-docling                                          # vendors docling into .venv-docling/ (gitignored, Python 3.11+ required)
+export ENCAP_PDF_EXTRACTOR_CMD=$(pwd)/.venv-docling/bin/docling
+```
+
+Mirrors ENSIM's `scripts/setup-portico.sh` pattern for a contained
+non-TypeScript dependency: vendored locally by a script, never committed,
+never imported by anything outside this one process boundary.

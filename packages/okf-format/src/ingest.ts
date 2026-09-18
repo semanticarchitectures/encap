@@ -9,6 +9,7 @@ import { mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, basename, extname } from "node:path";
 import { promisify } from "node:util";
+import { renderDoclingDocumentToMarkdown, type DoclingDocument } from "./docling-json.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -19,56 +20,78 @@ export interface ExtractorConfig {
   command: string;
   /** Builds the argv (excluding `command`) for one input file, given a scratch output directory. */
   buildArgs: (inputPath: string, outputDir: string) => string[];
-  /** Finds the produced Markdown file inside `outputDir` after the command exits. */
+  /** Finds the produced output file inside `outputDir` after the command exits. */
   findOutput: (inputPath: string, outputDir: string) => string;
+  /** Transforms the raw content of `findOutput`'s file into final Markdown. Defaults to identity (the extractor already emits Markdown directly). */
+  parseOutput?: (rawContent: string) => string;
+  /** Whether this config's output is known, by an actual verified run, to carry correct page anchors. */
+  pageAnchorsVerified: boolean;
 }
 
 /**
  * Docling (docs/PLAN.md Section 3.4 names it as the first candidate).
- * Flags confirmed against the docling CLI reference
- * (docling-project.github.io/docling/reference/cli/, fetched 2026-09-15):
- * `-o/--output <dir>` (default `.`) and `--to md` (the default export
- * format). NOT confirmed by that reference, and NOT independently
- * verified here (no docling install, no PDF fixture yet — Phase 1 gate
- * (b) is blocked on both): whether docling's Markdown export emits
- * page-anchor markers at all, and if so in what form. Flagging this
- * explicitly per AGENTS.md Section 11 rather than inventing a page-anchor
- * format — resolve it against a real docling run before relying on gate
- * (b), and adjust `findOutput`/post-processing here if page anchors need
- * to be synthesized from `--page-range` batching instead of being native
- * to a single run.
+ *
+ * Verified 2026-09-18 against docling 2.129.0, run against real files in
+ * fixtures/doctrine/ (not just the CLI reference docs, which turned out
+ * to be for an older CLI shape — the installed version requires a
+ * `convert` subcommand, e.g. `docling convert <source> --output <dir>
+ * --to json`, not the bare `docling <source> -o <dir> --to md` the
+ * published reference described):
+ *
+ * - `docling convert --to md` produces good, citable prose (headings,
+ *   tables, paragraph structure all survive) but embeds NO page
+ *   information whatsoever — confirmed by full-text inspection of a
+ *   real run, not assumed.
+ * - `docling convert --to json` (docling's native "DoclingDocument"
+ *   schema) DOES carry `prov[].page_no` on every text/table/picture
+ *   item. So this config asks for JSON and `docling-json.ts` renders it
+ *   to Markdown with `<!-- page:N -->` anchors synthesized from that
+ *   field — docling itself never produces page-anchored Markdown, this
+ *   package does, from data docling does provide.
+ * - `--image-export-mode placeholder` is required in practice, not just
+ *   preferred: the default (`embedded`) inlines every figure as a
+ *   base64 data URI directly in the JSON/Markdown, which blew a 5-page
+ *   test document up to 236KB for 3 images. `docling-json.ts` renders
+ *   pictures as a plain `<!-- image -->` marker either way, matching
+ *   docling's own `--to md` convention for non-embedded images.
+ *
+ * See `docling-json.ts`'s module doc comment for exactly which document
+ * item types this renderer handles and which it doesn't.
  */
 export const doclingExtractor: ExtractorConfig = {
   name: "docling",
   command: process.env.ENCAP_PDF_EXTRACTOR_CMD ?? "docling",
-  buildArgs: (inputPath, outputDir) => [inputPath, "-o", outputDir, "--to", "md"],
+  buildArgs: (inputPath, outputDir) => [
+    "convert",
+    inputPath,
+    "--output",
+    outputDir,
+    "--to",
+    "json",
+    "--image-export-mode",
+    "placeholder",
+  ],
   findOutput: (inputPath, outputDir) => {
     const stem = basename(inputPath, extname(inputPath));
-    const expected = join(outputDir, `${stem}.md`);
+    const expected = join(outputDir, `${stem}.json`);
     try {
       readFileSync(expected, "utf8");
       return expected;
     } catch {
-      // Fall back to "whatever single .md file docling produced" in case
-      // its naming convention differs from the expected stem match.
-      const mdFiles = readdirSync(outputDir).filter((f) => f.endsWith(".md"));
-      if (mdFiles.length === 1) return join(outputDir, mdFiles[0]!);
+      const jsonFiles = readdirSync(outputDir).filter((f) => f.endsWith(".json"));
+      if (jsonFiles.length === 1) return join(outputDir, jsonFiles[0]!);
       throw new Error(
-        `could not locate docling's output Markdown file in ${outputDir} (expected ${expected}, found: ${mdFiles.join(", ") || "none"})`,
+        `could not locate docling's output JSON file in ${outputDir} (expected ${expected}, found: ${jsonFiles.join(", ") || "none"})`,
       );
     }
   },
+  parseOutput: (rawContent) => renderDoclingDocumentToMarkdown(JSON.parse(rawContent) as DoclingDocument),
+  pageAnchorsVerified: true,
 };
 
 export interface IngestResult {
   markdown: string;
   extractor: string;
-  /**
-   * Always false until a real run against a real docling install and a
-   * real PDF confirms the page-anchor format (see doclingExtractor's
-   * doc comment). Downstream citation code MUST check this rather than
-   * assuming page anchors are present and correct.
-   */
   pageAnchorsVerified: boolean;
 }
 
@@ -84,8 +107,9 @@ export async function ingestDocument(inputPath: string, extractor: ExtractorConf
   try {
     await execFileAsync(extractor.command, extractor.buildArgs(inputPath, outputDir));
     const outputPath = extractor.findOutput(inputPath, outputDir);
-    const markdown = readFileSync(outputPath, "utf8");
-    return { markdown, extractor: extractor.name, pageAnchorsVerified: false };
+    const raw = readFileSync(outputPath, "utf8");
+    const markdown = extractor.parseOutput ? extractor.parseOutput(raw) : raw;
+    return { markdown, extractor: extractor.name, pageAnchorsVerified: extractor.pageAnchorsVerified };
   } finally {
     rmSync(outputDir, { recursive: true, force: true });
   }

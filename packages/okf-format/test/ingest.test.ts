@@ -12,6 +12,7 @@ function fakeExtractor(mode?: "fail"): ExtractorConfig {
     command: process.execPath,
     buildArgs: (inputPath, outputDir) => [fakeExtractorScript, inputPath, outputDir, ...(mode ? [mode] : [])],
     findOutput: (_inputPath, outputDir) => join(outputDir, "result.md"),
+    pageAnchorsVerified: false,
   };
 }
 
@@ -24,7 +25,7 @@ describe("ingestDocument (process-boundary contract)", () => {
     expect(result.markdown).toContain("<!-- page:2 -->");
   });
 
-  it("marks pageAnchorsVerified false until a real extractor confirms the format", async () => {
+  it("reports pageAnchorsVerified from the extractor config (false for this fake one; true for doclingExtractor, verified against a real run — see docling-json.test.ts)", async () => {
     const result = await ingestDocument("/fake/path/doc.pdf", fakeExtractor());
     expect(result.pageAnchorsVerified).toBe(false);
   });
@@ -43,6 +44,7 @@ describe("ingestDocument (process-boundary contract)", () => {
         outputDir,
       ],
       findOutput: (_inputPath, outputDir) => join(outputDir, "custom.md"),
+      pageAnchorsVerified: false,
     };
     const result = await ingestDocument("/fake/doc.pdf", custom);
     expect(result.extractor).toBe("custom-stub");

@@ -1,0 +1,1304 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/tables/0"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 35.04,
+            "t": 764.304,
+            "r": 591.868,
+            "b": 743.8111825613079,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            36
+          ]
+        }
+      ],
+      "orig": "AIR FORCE DOCTRINE PUBLICATION 3-0.1",
+      "text": "AIR FORCE DOCTRINE PUBLICATION 3-0.1",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 54.72,
+            "t": 540.406,
+            "r": 572.2919999999999,
+            "b": 509.66677384196186,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "COMMAND AND CONTROL",
+      "text": "COMMAND AND CONTROL",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 175.66666666666666,
+            "t": 71.0,
+            "r": 434.6666666666667,
+            "b": 45.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "U.S.AIRFORCE",
+      "text": "U.S.AIRFORCE",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 254.81,
+            "t": 24.192000000000007,
+            "r": 364.11400000000003,
+            "b": 13.945591280653957,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "22 January 2025",
+      "text": "22 January 2025"
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 223.13,
+            "t": 760.656,
+            "r": 540.1180000000002,
+            "b": 749.892861878453,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "Air Force Doctrine Publication 3-0.1, Command and Control",
+      "text": "Air Force Doctrine Publication 3-0.1, Command and Control"
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 150.86,
+            "t": 716.284,
+            "r": 466.11400000000003,
+            "b": 679.3792928176795,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "Air Force Doctrine Publication 3-0.1, Command and Control",
+      "text": "Air Force Doctrine Publication 3-0.1, Command and Control",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 246.89,
+            "t": 663.72112,
+            "r": 369.01312,
+            "b": 651.12824839779,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            17
+          ]
+        }
+      ],
+      "orig": "Table of Contents",
+      "text": "Table of Contents",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 223.13,
+            "t": 760.656,
+            "r": 540.1180000000002,
+            "b": 749.892861878453,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "Air Force Doctrine Publication 3-0.1, Command and Control",
+      "text": "Air Force Doctrine Publication 3-0.1, Command and Control"
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 264.41,
+            "t": 717.12112,
+            "r": 351.61312,
+            "b": 704.52824839779,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "FOREWORD",
+      "text": "FOREWORD",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 72.024,
+            "t": 689.836,
+            "r": 543.436,
+            "b": 568.6728618784531,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            724
+          ]
+        }
+      ],
+      "orig": "The most pressing objective for the United States Air Force (USAF) doctrine is to equip the Service with the intellectual tools necessary to prepare and posture for conflict in an era of great power competition. Towards this aim, in 2021 the USAF published its first new capstone doctrine in six years, Air Force Doctrine Publication (AFDP) 1, The Air Force . Recognizing the Service's increasingly centralized approach to operations was an ill  fit  for  peer  conflict,  the  most  significant  contribution  of  AFDP  1  was  the  addition  of mission command as the central tenet of airpower. The adoption of mission command marked a necessary first step in a chain of progression that is spreading across USAF doctrine.",
+      "text": "The most pressing objective for the United States Air Force (USAF) doctrine is to equip the Service with the intellectual tools necessary to prepare and posture for conflict in an era of great power competition. Towards this aim, in 2021 the USAF published its first new capstone doctrine in six years, Air Force Doctrine Publication (AFDP) 1, The Air Force . Recognizing the Service's increasingly centralized approach to operations was an ill  fit  for  peer  conflict,  the  most  significant  contribution  of  AFDP  1  was  the  addition  of mission command as the central tenet of airpower. The adoption of mission command marked a necessary first step in a chain of progression that is spreading across USAF doctrine."
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 72.024,
+            "t": 555.676,
+            "r": 543.424,
+            "b": 448.28286187845305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            685
+          ]
+        }
+      ],
+      "orig": "Initially  introduced  as  the  Airman's  philosophy  for  the  command  and  control  (C2)  of airpower,  mission  command  was  later  refined  in  AFDP  1-1, Mission  Command ,  as  a philosophy of leadership that empowers Airmen to operate in uncertain, complex, and rapidly changing environments through trust, shared awareness, and understanding of commander's intent. While closely tied to C2, this more nuanced description draws on lessons learned from sister Services, whose adoption of mission command predates our own.  Consequently,  AFDP  1-1  focused  on  the  fundamentals  of  mission  command, principles, and the need for a Service culture that supports its practice.",
+      "text": "Initially  introduced  as  the  Airman's  philosophy  for  the  command  and  control  (C2)  of airpower,  mission  command  was  later  refined  in  AFDP  1-1, Mission  Command ,  as  a philosophy of leadership that empowers Airmen to operate in uncertain, complex, and rapidly changing environments through trust, shared awareness, and understanding of commander's intent. While closely tied to C2, this more nuanced description draws on lessons learned from sister Services, whose adoption of mission command predates our own.  Consequently,  AFDP  1-1  focused  on  the  fundamentals  of  mission  command, principles, and the need for a Service culture that supports its practice."
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 72.024,
+            "t": 435.286,
+            "r": 543.436,
+            "b": 258.902861878453,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1124
+          ]
+        }
+      ],
+      "orig": "Continuing this progression, AFDP  3-0.1, Command  and Control , presents a comprehensive  understanding  of  mission  command  as  it  is  implemented  through  the framework of Centralized Command-Distributed Control-Decentralized Execution (CC-DC-DE).  The  implications  of  Distributed  Control 1   are  a  dominant  focus  of  this publication  and  differentiate  this  revision  from  previous  examinations  of  C2  in  USAF doctrine.  Until  now,  USAF  C2 doctrine  detailed  the  role of the  commander,  Air  Force forces (COMAFFOR),  discussed force presentation and command  relationships (COMREL), and detailed the distinct roles and responsibilities of organizations within an air operations center (AOC). These topics are now addressed in AFDP 3-0, Operations , or  remain  in  their  respective  tactical  source  documents.  In  their  place,  this  document presents entirely new content to depict  the C2 function through its major elements: a commander that makes decisions, the framework for authority delegation, the activities of the C2 process, and the systems that enable the direction of forces.",
+      "text": "Continuing this progression, AFDP  3-0.1, Command  and Control , presents a comprehensive  understanding  of  mission  command  as  it  is  implemented  through  the framework of Centralized Command-Distributed Control-Decentralized Execution (CC-DC-DE).  The  implications  of  Distributed  Control 1   are  a  dominant  focus  of  this publication  and  differentiate  this  revision  from  previous  examinations  of  C2  in  USAF doctrine.  Until  now,  USAF  C2 doctrine  detailed  the  role of the  commander,  Air  Force forces (COMAFFOR),  discussed force presentation and command  relationships (COMREL), and detailed the distinct roles and responsibilities of organizations within an air operations center (AOC). These topics are now addressed in AFDP 3-0, Operations , or  remain  in  their  respective  tactical  source  documents.  In  their  place,  this  document presents entirely new content to depict  the C2 function through its major elements: a commander that makes decisions, the framework for authority delegation, the activities of the C2 process, and the systems that enable the direction of forces."
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 72.024,
+            "t": 245.78600000000006,
+            "r": 543.3460000000001,
+            "b": 179.7928618784531,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            415
+          ]
+        }
+      ],
+      "orig": "By presenting C2 through this model, AFDP 3-0.1 forms a complete picture of mission command in action. It hones our understanding of Distributed Control by addressing the question, 'What is distributed, to whom, and for what purpose?' Its answer: 1) authority, 2) subordinate commanders, and 3) to conduct the C2 process. This evolved approach to C2 is applicable to all USAF operations at every echelon of command.",
+      "text": "By presenting C2 through this model, AFDP 3-0.1 forms a complete picture of mission command in action. It hones our understanding of Distributed Control by addressing the question, 'What is distributed, to whom, and for what purpose?' Its answer: 1) authority, 2) subordinate commanders, and 3) to conduct the C2 process. This evolved approach to C2 is applicable to all USAF operations at every echelon of command."
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 72.024,
+            "t": 81.78143999999998,
+            "r": 419.23888000000005,
+            "b": 72.38147535911605,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            82
+          ]
+        }
+      ],
+      "orig": "1  Throughout this publication, 'Distributed Control' is capitalized for emphasis.",
+      "text": "1  Throughout this publication, 'Distributed Control' is capitalized for emphasis."
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 304.73,
+            "t": 57.120000000000005,
+            "r": 310.706,
+            "b": 46.35686187845306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "i",
+      "text": "i"
+    }
+  ],
+  "tables": [
+    {
+      "self_ref": "#/tables/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "document_index",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 70.66553497314453,
+            "t": 638.3192443847656,
+            "r": 540.3854370117188,
+            "b": 308.5952453613281,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "data": {
+        "table_cells": [
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 154.00400000000002,
+              "r": 540.076,
+              "b": 164.76713812154696,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 0,
+            "end_row_offset_idx": 1,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Foreword ......................................................................................................................... i",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 172.84400000000005,
+              "r": 540.052,
+              "b": 183.607138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 1,
+            "end_row_offset_idx": 2,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Chapter 1: COMMAND AND CONTROL OVERVIEW ................................................... 1",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 191.68399999999997,
+              "r": 540.052,
+              "b": 202.4471381215469,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 2,
+            "end_row_offset_idx": 3,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "THE COMMANDER ..................................................................................................... 2",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 210.404,
+              "r": 540.052,
+              "b": 221.16713812154694,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 3,
+            "end_row_offset_idx": 4,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "COMMAND AND CONTROL FRAMEWORK ............................................................. 4",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 229.24400000000003,
+              "r": 540.052,
+              "b": 240.00713812154697,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 4,
+            "end_row_offset_idx": 5,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Chapter 2: THE COMMAND AND CONTROL PROCESS ............................................ 9",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 248.11400000000003,
+              "r": 540.172,
+              "b": 258.877138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 5,
+            "end_row_offset_idx": 6,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "MAJOR COMMAND AND CONTROL ACTIVITIES .................................................. 10",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 266.83400000000006,
+              "r": 540.172,
+              "b": 277.597138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 6,
+            "end_row_offset_idx": 7,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "APPLYING THE COMMAND AND CONTROL PROCESS ....................................... 17",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 285.67400000000004,
+              "r": 540.172,
+              "b": 296.437138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 7,
+            "end_row_offset_idx": 8,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Chapter 3: COMMAND AND CONTROL SYSTEMS ................................................... 22",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 304.514,
+              "r": 540.172,
+              "b": 315.27713812154695,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 8,
+            "end_row_offset_idx": 9,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "THEATER AFFOR STAFF AND AOC STAFF .......................................................... 22",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 323.23400000000004,
+              "r": 540.172,
+              "b": 333.997138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 9,
+            "end_row_offset_idx": 10,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "THEATER STAFF STRUCTURES ............................................................................ 27",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 342.074,
+              "r": 540.172,
+              "b": 352.83713812154696,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 10,
+            "end_row_offset_idx": 11,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "WING A-STAFF STRUCTURE .................................................................................. 29",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 360.914,
+              "r": 540.172,
+              "b": 371.67713812154693,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 11,
+            "end_row_offset_idx": 12,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "THEATER AIR CONTROL SYSTEM ......................................................................... 31",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 82.824,
+              "t": 379.634,
+              "r": 540.172,
+              "b": 390.39713812154696,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 12,
+            "end_row_offset_idx": 13,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "COMMAND AND CONTROL TECHNOLOGY .......................................................... 38",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 398.474,
+              "r": 540.172,
+              "b": 409.23713812154693,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 13,
+            "end_row_offset_idx": 14,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Appendix A: COMMAND AND CONTROL TERMINOLOGY ...................................... 45",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 417.314,
+              "r": 540.172,
+              "b": 428.07713812154697,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 14,
+            "end_row_offset_idx": 15,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Appendix B: DISTRIBUTED CONTROL CONSIDERATIONS .................................... 50",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 436.05400000000003,
+              "r": 540.172,
+              "b": 446.817138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 15,
+            "end_row_offset_idx": 16,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Appendix C: COMMAND AND CONTROL ACTIVITY CONSIDERATIONS ............... 52",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 454.894,
+              "r": 540.172,
+              "b": 465.65713812154695,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 16,
+            "end_row_offset_idx": 17,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "Appendix D: BATTLE RHYTHM ORGANIZATION ..................................................... 58",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 72.024,
+              "t": 473.73400000000004,
+              "r": 540.172,
+              "b": 484.497138121547,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 17,
+            "end_row_offset_idx": 18,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "References ................................................................................................................... 61",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          }
+        ],
+        "num_rows": 18,
+        "num_cols": 1,
+        "orientation": "rot_0",
+        "grid": [
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 154.00400000000002,
+                "r": 540.076,
+                "b": 164.76713812154696,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 0,
+              "end_row_offset_idx": 1,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Foreword ......................................................................................................................... i",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 172.84400000000005,
+                "r": 540.052,
+                "b": 183.607138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 1,
+              "end_row_offset_idx": 2,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Chapter 1: COMMAND AND CONTROL OVERVIEW ................................................... 1",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 191.68399999999997,
+                "r": 540.052,
+                "b": 202.4471381215469,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 2,
+              "end_row_offset_idx": 3,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "THE COMMANDER ..................................................................................................... 2",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 210.404,
+                "r": 540.052,
+                "b": 221.16713812154694,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 3,
+              "end_row_offset_idx": 4,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "COMMAND AND CONTROL FRAMEWORK ............................................................. 4",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 229.24400000000003,
+                "r": 540.052,
+                "b": 240.00713812154697,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 4,
+              "end_row_offset_idx": 5,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Chapter 2: THE COMMAND AND CONTROL PROCESS ............................................ 9",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 248.11400000000003,
+                "r": 540.172,
+                "b": 258.877138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 5,
+              "end_row_offset_idx": 6,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "MAJOR COMMAND AND CONTROL ACTIVITIES .................................................. 10",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 266.83400000000006,
+                "r": 540.172,
+                "b": 277.597138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 6,
+              "end_row_offset_idx": 7,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "APPLYING THE COMMAND AND CONTROL PROCESS ....................................... 17",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 285.67400000000004,
+                "r": 540.172,
+                "b": 296.437138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 7,
+              "end_row_offset_idx": 8,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Chapter 3: COMMAND AND CONTROL SYSTEMS ................................................... 22",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 304.514,
+                "r": 540.172,
+                "b": 315.27713812154695,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 8,
+              "end_row_offset_idx": 9,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "THEATER AFFOR STAFF AND AOC STAFF .......................................................... 22",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 323.23400000000004,
+                "r": 540.172,
+                "b": 333.997138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 9,
+              "end_row_offset_idx": 10,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "THEATER STAFF STRUCTURES ............................................................................ 27",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 342.074,
+                "r": 540.172,
+                "b": 352.83713812154696,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 10,
+              "end_row_offset_idx": 11,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "WING A-STAFF STRUCTURE .................................................................................. 29",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 360.914,
+                "r": 540.172,
+                "b": 371.67713812154693,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 11,
+              "end_row_offset_idx": 12,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "THEATER AIR CONTROL SYSTEM ......................................................................... 31",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 82.824,
+                "t": 379.634,
+                "r": 540.172,
+                "b": 390.39713812154696,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 12,
+              "end_row_offset_idx": 13,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "COMMAND AND CONTROL TECHNOLOGY .......................................................... 38",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 398.474,
+                "r": 540.172,
+                "b": 409.23713812154693,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 13,
+              "end_row_offset_idx": 14,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Appendix A: COMMAND AND CONTROL TERMINOLOGY ...................................... 45",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 417.314,
+                "r": 540.172,
+                "b": 428.07713812154697,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 14,
+              "end_row_offset_idx": 15,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Appendix B: DISTRIBUTED CONTROL CONSIDERATIONS .................................... 50",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 436.05400000000003,
+                "r": 540.172,
+                "b": 446.817138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 15,
+              "end_row_offset_idx": 16,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Appendix C: COMMAND AND CONTROL ACTIVITY CONSIDERATIONS ............... 52",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 454.894,
+                "r": 540.172,
+                "b": 465.65713812154695,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 16,
+              "end_row_offset_idx": 17,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "Appendix D: BATTLE RHYTHM ORGANIZATION ..................................................... 58",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 72.024,
+                "t": 473.73400000000004,
+                "r": 540.172,
+                "b": 484.497138121547,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 17,
+              "end_row_offset_idx": 18,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "References ................................................................................................................... 61",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ]
+        ]
+      },
+      "annotations": []
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 218.6679229736328,
+            "t": 250.8409423828125,
+            "r": 397.81414794921875,
+            "b": 92.6688232421875,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    }
+  ],
+  "groups": []
+}

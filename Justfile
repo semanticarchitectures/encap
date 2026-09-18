@@ -24,3 +24,8 @@ validate:
 #   ENSIM_PATH=/path/to/local/ENSIM just fetch-ensim   # local clone, no network fetch
 fetch-ensim sha="aa7b714":
     node eval/ensim-harness/scripts/fetch-ensim.mjs {{sha}}
+
+# Vendors docling into .venv-docling/ (gitignored) for the okf-format
+# ingest boundary. Prints the ENCAP_PDF_EXTRACTOR_CMD export to run after.
+setup-docling:
+    packages/okf-format/scripts/setup-docling.sh

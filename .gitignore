@@ -11,3 +11,8 @@ fixtures/doctrine/*.pdf
 
 # Non-pinned local override for eval/ensim-harness (see its README).
 .ensim-local/
+
+# Vendored docling install for the okf-format ingest boundary (see
+# packages/okf-format/scripts/setup-docling.sh) — Python, never committed,
+# same contained-dependency pattern as ENSIM's vendor/ for Portico.
+.venv-docling/
