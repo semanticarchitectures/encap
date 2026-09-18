@@ -31,8 +31,15 @@ function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+// Two real, current phrasings seen on actual DAF publications: the classic
+// "Distribution A ... distribution unlimited" statement, and the DAFMAN
+// releasability boilerplate ("RELEASABILITY: There are no releasability
+// restrictions on this publication.") that newer AFMANs use instead. A
+// document with neither — e.g. a LeMay Center AFDP with no printed
+// statement at all — must NOT match here; that's a real gap to flag to a
+// human (AGENTS.md Section 3), not something this check should paper over.
 function looksLikeUnlimitedRelease(statement) {
-  return /unlimited/i.test(statement);
+  return /unlimited/i.test(statement) || /no releasability restrictions/i.test(statement);
 }
 
 function validateDoctrineManifest() {

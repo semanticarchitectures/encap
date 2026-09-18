@@ -1,4 +1,35 @@
 {
   "$schema": "./manifest.schema.json",
-  "documents": []
+  "documents": [
+    {
+      "id": "afman-13-1aoc-vol-3",
+      "title": "AFMAN 13-1AOC Volume 3, Operational Procedures - Air Operations Center (AOC)/Operations Center (OC)",
+      "sourceUrl": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1aocv3/afman13-1aocv3_.pdf",
+      "sha256": "d96d11dc35eb6ca66b3bbafeef472a25e504b2d022a71ee745cb86ebbc0f99a3",
+      "publicationDate": "2024-06-25",
+      "distributionStatement": "RELEASABILITY: There are no releasability restrictions on this publication.",
+      "localPath": "afman-13-1aoc-vol-3.pdf",
+      "note": "Distribution statement copied verbatim from the document's cover page. Supersedes DAFMAN 13-1AOC, Volume 3, 18 Dec 2020, per its own front matter."
+    },
+    {
+      "id": "afdp-3-0-1-command-and-control",
+      "title": "AFDP 3-0.1, Command and Control",
+      "sourceUrl": "https://www.doctrine.af.mil/Portals/61/documents/AFDP_3-0_1/AFDP3-0.1CommandandControl.pdf",
+      "sha256": "82c18a5816c4a343f238076bc7de7fd808ab4e069a3d4ff5003b3877663e496f",
+      "publicationDate": "2025-01-22",
+      "distributionStatement": "No distribution or releasability statement is printed anywhere in this document (checked full text and PDF metadata, all 64 pages). Publicly and freely hosted with no login or access restriction at doctrine.af.mil, an official LeMay Center for Doctrine Development and Education site. Treated as unlimited public release per Kevin's confirmation on 2026-09-18, consistent with how AFMAN 13-1AOC Vol 3 (same fixture set) describes its own openly-published DAF doctrine.",
+      "localPath": "afdp-3-0.1-command-and-control.pdf",
+      "note": "This distributionStatement records a human determination, not text printed on the document — there is none. doctrine.af.mil returns HTTP 403 to automated fetches from this session's environment (same .mil network-block pattern ENSIM's own sessions documented), so the source page's own releasability notice, if any, could not be independently checked here."
+    },
+    {
+      "id": "afdp-3-36-air-mobility-operations",
+      "title": "AFDP 3-36, Air Mobility Operations",
+      "sourceUrl": "https://www.doctrine.af.mil/Portals/61/documents/AFDP_3-36/3-36-AFDP-MOBILITY-OPS.pdf",
+      "sha256": "08c6e9f8ad2e3a5996494b537ae2e62f76c1c926304abf74477806267b44d421",
+      "publicationDate": "2024-06-24",
+      "distributionStatement": "No distribution or releasability statement is printed anywhere in this document (checked full text and PDF metadata, all 65 pages). Publicly and freely hosted with no login or access restriction at doctrine.af.mil, an official LeMay Center for Doctrine Development and Education site. Treated as unlimited public release per Kevin's confirmation on 2026-09-18, consistent with how AFMAN 13-1AOC Vol 3 (same fixture set) describes its own openly-published DAF doctrine.",
+      "localPath": "afdp-3-36-air-mobility-operations.pdf",
+      "note": "This distributionStatement records a human determination, not text printed on the document — there is none. doctrine.af.mil returns HTTP 403 to automated fetches from this session's environment (same .mil network-block pattern ENSIM's own sessions documented), so the source page's own releasability notice, if any, could not be independently checked here. Chosen as a substitute for JP 3-17 (Air Mobility Operations, joint doctrine) which Kevin could not access; this AFDP covers the same subject matter at the Air Force-specific level and is more current (24 Jun 2024 vs. JP 3-17's 5 Feb 2019)."
+    }
+  ]
 }
