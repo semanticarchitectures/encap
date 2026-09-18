@@ -7,9 +7,21 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
-    "build": "echo \"@encap/synthesis-agent: no code yet (Phase 2, see docs/PLAN.md Section 5)\"",
-    "test": "echo \"@encap/synthesis-agent: no tests yet\"",
-    "validate": "echo \"@encap/synthesis-agent: nothing to validate yet\""
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "npm run build && vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@encap/okf-format": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "vitest": "^4.1.11"
   }
 }

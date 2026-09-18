@@ -7,9 +7,21 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
-    "build": "echo \"@encap/eval-runner: no code yet (Phase 2, see docs/PLAN.md Section 5)\"",
-    "test": "echo \"@encap/eval-runner: no tests yet\"",
-    "validate": "echo \"@encap/eval-runner: nothing to validate yet\""
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "npm run build && vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "vitest": "^4.1.11"
   }
 }
