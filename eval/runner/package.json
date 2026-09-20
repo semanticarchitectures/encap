@@ -15,7 +15,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate": "npm run build && vitest run",
-    "run-fixture-gate": "node scripts/run-fixture-gate.mjs"
+    "run-fixture-gate": "node scripts/run-fixture-gate.mjs",
+    "run-multifile-demo": "node scripts/run-multifile-demo.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",

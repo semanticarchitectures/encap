@@ -56,18 +56,59 @@ Both are covered by `test/post-process.test.ts` against the exact shape
 of the real failure, so a regression here would be caught by `npm test`
 without needing another live API call.
 
+### Two more real defects found running `synthesizeMultiFile` against two full PDFs together
+
+1. **Output truncation at the default token ceiling.** The original
+   `MAX_TOKENS = 16000` (fine for single-file synthesis of one ~64-page
+   document) produced output with no frontmatter at all when synthesizing
+   across two full documents (~100K combined input tokens) — the request
+   likely needed more thinking + output budget than the ceiling allowed.
+   Fixed by raising `MAX_TOKENS` to 32000 and, more importantly, by
+   checking `response.stop_reason === "max_tokens"` explicitly and
+   throwing a clear, diagnosable error instead of a bare downstream parse
+   failure.
+2. **Dropped connections on long-duration requests.** Even after fixing
+   (1), synthesizing across both full documents crashed three times in a
+   row with an uncaught `AnthropicError: terminated` (`cause: ETIMEDOUT`)
+   from the underlying TLS stream — this session's sandbox network path
+   killing a long-lived streaming connection mid-flight. `runSynthesis`
+   now retries a small, specific set of connection-level errors
+   (`isRetryableConnectionError`) up to `MAX_NETWORK_RETRIES` times. This
+   specific failure mode is an **uncaught exception from the SDK's stream
+   handling, not a promise rejection** — the retry logic does catch and
+   retry it correctly (`test/synthesize.test.ts` proves this with an
+   injected flaky-then-ok client), but on the real full-document run the
+   same failure recurred on every attempt, meaning something about that
+   request's duration or size reliably trips the same network limit
+   rather than the transient blip application-level retry is meant for.
+   Reducing input size (see `eval/runner`'s multi-file demo, which uses
+   an excerpt of each document) reliably avoids it. A genuinely robust
+   fix for very large multi-file inputs — chunking, a lower effort
+   level, or running outside this specific sandboxed network — is future
+   work, not yet built.
+
 ## Phase 2 gate status
 
-Run for real end-to-end via `eval/runner/scripts/run-fixture-gate.mjs`
-(see that package's README) against `afdp-3-0-1-command-and-control`:
-first run passed all 7 competency questions cleanly; a second run (after
-the two fixes above) passed 6 of 7 — the miss was the synthesis omitting
-one specific enumerated detail (the echelon levels Distributed Control
-can be delegated to) that the source-reading baseline happened to
-include. This is real run-to-run variance in what gets synthesized, not
-a bug: LLM-judged gates like this one are not perfectly deterministic,
-and a single passing run does not guarantee every future run passes. See
+**Single-file.** Run for real end-to-end via
+`eval/runner/scripts/run-fixture-gate.mjs` (see that package's README)
+against `afdp-3-0-1-command-and-control`: first run passed all 7
+competency questions cleanly; a second run (after the two fixes above)
+passed 6 of 7 — the miss was the synthesis omitting one specific
+enumerated detail (the echelon levels Distributed Control can be
+delegated to) that the source-reading baseline happened to include. This
+is real run-to-run variance in what gets synthesized, not a bug:
+LLM-judged gates like this one are not perfectly deterministic, and a
+single passing run does not guarantee every future run passes. See
 `docs/PLAN.md` Section 5's framing — the competency-question gate exists
 precisely because "reflects understanding" needs a real, falsifiable
 measurement, and a probabilistic pass rate is part of the honest answer,
 not a flaw to paper over.
+
+**Multi-file.** Run for real via `eval/runner/scripts/run-multifile-demo.mjs`
+against excerpts of two documents (full-document synthesis hit the
+network-timeout issue above): produced genuine cross-document synthesis
+— explicit comparison between the two publications, correctly
+distinguishing a real shared concept from a merely thematic parallel,
+dense citation of both sources, and an honest note about its own
+excerpt-only scope rather than presenting partial coverage as complete.
+See `eval/runner`'s README for the full account.

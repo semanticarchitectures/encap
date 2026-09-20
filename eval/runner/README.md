@@ -66,3 +66,40 @@ predates the footnote-definition fix and would have failed it). This
 gate is inherently probabilistic — it depends on LLM synthesis and LLM
 judging on both sides — so a single passing run is evidence the pipeline
 works, not a permanent guarantee every future run passes.
+
+## Running the multi-file demo for real (`scripts/run-multifile-demo.mjs`)
+
+```
+export ENCAP_PDF_EXTRACTOR_CMD=$(pwd)/.venv-docling/bin/docling
+node eval/runner/scripts/run-multifile-demo.mjs
+```
+
+Same idea as the fixture gate, but exercises `synthesizeMultiFile`
+(several documents in, one synthesized concept out) against excerpts of
+two real doctrine PDFs. Uses only the first ~15000 characters of each
+document, not the full PDFs — see the script's header comment for why:
+synthesizing across both FULL documents (~100K combined input tokens,
+high thinking effort) crashed this session's sandbox network path three
+times in a row with an uncaught `AnthropicError: terminated` /
+`ETIMEDOUT` from the underlying TLS stream — a long-duration streaming
+connection getting killed mid-flight, not a bug in the synthesis code
+(`@encap/synthesis-agent` already retries retryable connection errors;
+this specific failure is an uncaught exception from the SDK's stream
+handling, not a promise rejection, so it isn't retryable at that layer).
+A run at the reduced size completes in under two minutes.
+
+### Real result (`afdp-3-0-1` + `afdp-3-36` excerpts, 2026-09-20)
+
+Ran for real, produced genuine cross-document synthesis rather than a
+concatenation: it explicitly compares the two publications ("AFDP 3-36
+does not develop the CC-DC-DE framework, but it does list mission
+command first...", correctly distinguishing a real shared concept from
+a merely thematic echo it declined to overclaim as a cross-reference),
+cites both documents densely (7+ distinct pages each), passes
+`validateStrictProvenance` cleanly, and — notably — explicitly flags its
+own excerpt-only scope in the body ("Claims below are therefore limited
+to what appears in the reviewed pages; the absence of a topic here
+should not be read as its absence from the publications") rather than
+presenting partial coverage as complete, per `AGENTS.md` Section 2.
+Frozen as a fixture in `test/fixtures/real-runs/` with a regression test
+that checks these properties without needing another live API call.
