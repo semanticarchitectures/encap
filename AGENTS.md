@@ -49,3 +49,14 @@ Real enterprise documents and real people never enter this repo. `eval/ensim-har
 ## 11. When in doubt
 
 Ask, or leave a clearly marked TODO citing what's uncertain, rather than filling a gap with a plausible-sounding invention. That applies to source facts, to license terms, to the OKF spec's intent where it is ambiguous, and to architectural decisions not already settled in `docs/PLAN.md`.
+
+## 12. Umbrella context (Acquisition Knowledge System)
+
+- This repo is a component of the Acquisition Knowledge System: https://github.com/semanticarchitectures/acquisition-knowledge-system.
+  Before cross-component work, read its `.kiro/steering/product.md` and `portfolio.md`.
+- Shared contracts and the shared ontology (BFO 2020 and CCO, pinned once in the umbrella's
+  `.kiro/steering/ontology.md`) are defined in the umbrella. Do not redefine them here.
+- Per AKS ADR 0009 (accepted 2026-10-26), ENCAP owns the one passage index and the one access model
+  in AKS. The knowledge base keeps no index or policy store of its own; it enforces the scope ENCAP
+  decides on its graph. Do not build a second policy store or accept one elsewhere.
+- Tasks tagged for this repo in umbrella specs land here; cite them by spec and task number.

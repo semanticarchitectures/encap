@@ -1,6 +1,13 @@
 # Project Plan — ENCAP
 
 **Status:** v1.0, 2026-09-15 — **decided.** Kevin confirmed the codename (ENCAP) and accepted every position in Sections 3 and 4 on 2026-09-15. Those sections keep their "what would overturn this" notes because they are the conditions under which a decision gets reopened — not because the decisions are still open. Reopening one requires an explicit human request, the same rule ENSIM's `AGENTS.md` Section 1 applies.
+
+**Amended 2026-10-26** by AKS ADR 0009, accepted by Kevin (the explicit human request this plan
+requires): Phase 4's `document-graph/` indexes the knowledge base's OKF bundles (one per echelon
+layer) as well as ENCAP's own, and is the only passage index in AKS. Phase 5's `access-control/`
+expresses echelon-layer scope and read or write permission, and ENCAP issues the scopes the knowledge
+base's graph tools enforce. The knowledge base keeps no index or policy store of its own. Phase
+dates follow the AKS integrated plan (Phases 2–3 by March 2027; Phases 4–5 August to October 2027).
 **Inputs read directly (not via the brief's summary):** ENSIM at commit `aa7b714` (2026-09-15): `AGENTS.md`, `docs/architecture/ARCHITECTURE.md` (Draft v1.2, dated 2026-09-10), `docs/architecture/tech-stack.md`, `packages/org-doctrine-model/schema/*` and `data/*`; and the OKF spec v0.2 (`GoogleCloudPlatform/knowledge-catalog`, `okf/SPEC.md`).
 **Intended location:** `docs/PLAN.md` in the new repo, next to `AGENTS.md` and `docs/architecture/ARCHITECTURE.md` once those exist.
 
